@@ -1,0 +1,207 @@
+/* ---------- Estrutura ---------- */
+.sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* ---------- Logo ---------- */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.brand__logo {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.625rem;
+    background: var(--primary);
+    color: #04120c;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.brand__name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* ---------- Menu ---------- */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.875rem;
+    color: var(--muted);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+    background: var(--secondary);
+    color: var(--foreground);
+}
+
+.nav-link:focus-visible,
+.profile-card:focus-visible,
+.theme-btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.nav-link__icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Item ativo: caixa verde no ícone + texto verde */
+.nav-link--active,
+.nav-link--active:hover {
+    background: transparent;
+    color: var(--primary);
+}
+
+.nav-link--active .nav-link__icon {
+    background: color-mix(in srgb, var(--primary) 16%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--primary) 25%, transparent);
+}
+
+/* ---------- Rodapé ---------- */
+.sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.profile-card,
+.theme-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.875rem;
+    background: var(--card);
+    color: var(--foreground);
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.profile-card:hover,
+.theme-btn:hover {
+    background: var(--secondary);
+}
+
+.profile-card__avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    background: var(--secondary);
+    object-fit: cover;
+}
+
+.profile-card__info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.profile-card__info strong {
+    overflow: hidden;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.profile-card__info span {
+    overflow: hidden;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.75rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.theme-btn {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* ---------- Tablet: só ícones ---------- */
+@media (max-width: 1023px) {
+    .brand {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .brand__name,
+    .nav-link__label,
+    .profile-card__info,
+    .theme-btn__label {
+        display: none;
+    }
+
+    .nav-link,
+    .profile-card,
+    .theme-btn {
+        justify-content: center;
+        padding-inline: 0.5rem;
+    }
+
+    .nav-link {
+        gap: 0;
+    }
+}
+
+/* ---------- Mobile: barra inferior ---------- */
+@media (max-width: 767px) {
+    .sidebar-inner {
+        flex-direction: row;
+        height: auto;
+    }
+
+    .brand,
+    .sidebar-footer {
+        display: none;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 0;
+    }
+
+    .nav-link {
+        flex: 1;
+        padding: 0.25rem 0;
+    }
+}

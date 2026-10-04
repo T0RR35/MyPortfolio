@@ -1,0 +1,101 @@
+/* ---------- Tokens de cor (claro / escuro) ---------- */
+:root {
+    --background: #ffffff;
+    --foreground: #0f1419;
+    --muted: #536471;
+    --border: #e5e7eb;
+    --secondary: #f3f4f6;
+    --primary: #10b981;
+    --card: #f9fafb;
+
+    --sidebar-width: 228px;
+    --sidebar-width-compact: 88px;
+    --content-max: 1280px;
+}
+
+:root.dark {
+    --background: #0a0a0a;
+    --foreground: #f4f4f5;
+    --muted: #a1a1aa;
+    --border: #27272a;
+    --secondary: #18181b;
+    --card: #111113;
+    --primary: #1fcf94;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ---------- Layout ---------- */
+.layout {
+    display: flex;
+    max-width: var(--content-max);
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+/* ---------- Sidebar (desktop) ---------- */
+.sidebar {
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    padding: 1.25rem 0.75rem;
+    overflow-y: auto;
+}
+
+/* ---------- Conteúdo principal ---------- */
+.main {
+    flex: 1;
+    min-width: 0;
+    /* evita estourar a largura com conteúdo grande */
+    min-height: 100vh;
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+}
+
+/* ---------- Tablet: sidebar compacta (só ícones) ---------- */
+@media (max-width: 1023px) {
+    .sidebar {
+        width: var(--sidebar-width-compact);
+        padding-inline: 0.5rem;
+    }
+}
+
+/* ---------- Mobile: sidebar vira barra inferior ---------- */
+@media (max-width: 767px) {
+    .layout {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        inset: auto 0 0 0;
+        z-index: 50;
+        width: 100%;
+        height: auto;
+        padding: 0.25rem 0.5rem calc(0.25rem + env(safe-area-inset-bottom));
+        overflow: visible;
+        background: color-mix(in srgb, var(--background) 92%, transparent);
+        backdrop-filter: blur(8px);
+        border-top: 1px solid var(--border);
+    }
+
+    .main {
+        min-height: auto;
+        border: 0;
+        padding-bottom: 5rem;
+    }
+}
