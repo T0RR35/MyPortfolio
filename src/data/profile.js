@@ -17,7 +17,7 @@ const english_profile = {
             label: "outra label"
         },
         {
-            value: "12",
+            value: "6",
             label: "outra label"
         },
         {
@@ -81,14 +81,9 @@ const english_profile = {
             {
                 name: "English",
                 level: "Professional (C1)"
-            },
-            {
-                name: "Spanish",
-                level: "Intermediate (B1)"
-            },
+            }
         ],
     },
-
 };
 
 var profile = english_profile
