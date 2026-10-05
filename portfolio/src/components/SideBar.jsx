@@ -26,7 +26,11 @@ export default function Sidebar() {
         <div className="sidebar-inner">
             <div className="brand">
                 <div className="brand__logo">R</div>
-                <span className="brand__name">devstream</span>
+                <span className="brand__name">Portfolio</span>
+                <div className="lang-switch" role="group" aria-label="Idioma / Language">
+                    <button type="button" className="lang-switch__btn lang-switch__btn--active">EN</button>
+                    <button type="button" className="lang-switch__btn">PT</button>
+                </div>
             </div>
 
             <nav className="sidebar-nav" aria-label="Principal">
@@ -50,10 +54,10 @@ export default function Sidebar() {
 
             <div className="sidebar-footer">
                 <NavLink to="/profile" className="profile-card" aria-label="Ver perfil">
-                    <img className="profile-card__avatar" src="/avatar.jpg" alt="" />
+                    <img className="profile-card__avatar" src="/visitante.jpg" alt="" />
                     <div className="profile-card__info">
-                        <strong>Rafael Torres</strong>
-                        <span>modestorresrafael@gmail.com</span>
+                        <strong>Visitante</strong>
+                        {/*<span>modestorresrafael@gmail.com</span>*/}
                     </div>
                 </NavLink>
 

@@ -1,3 +1,8 @@
-export default function Home(){
-    return(<h1></h1>)
+import HomeHeader from "@/components/HomeHeader";
+
+export default function Home() {
+    return (
+        <HomeHeader />
+    )
+
 }

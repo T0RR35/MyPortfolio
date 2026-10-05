@@ -1,0 +1,115 @@
+
+
+/* ---------- Banner ---------- */
+.home-header__banner {
+    height: 9rem;
+    overflow: hidden;
+    background: var(--secondary);
+    /* aparece se a imagem não carregar */
+}
+
+.home-header__banner img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ---------- Corpo ---------- */
+.home-header__body {
+    padding: 0 1.25rem 1.25rem;
+}
+
+.home-header__top {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+}
+
+/* Avatar sobrepondo o banner */
+.home-header__avatar {
+    flex-shrink: 0;
+    width: 8.5rem;
+    height: 8.5rem;
+    margin-top: -4.25rem;
+    border: 4px solid var(--background);
+    border-radius: 1rem;
+    background: var(--secondary);
+    object-fit: cover;
+}
+
+.home-header__identity {
+    min-width: 0;
+    padding-top: 1rem;
+}
+
+.home-header__name {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.home-header__title {
+    margin: 0.125rem 0 0;
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+/* ---------- Bio ---------- */
+.home-header__bio {
+    max-width: 40rem;
+    margin: 1rem 0 0.875rem;
+    color: color-mix(in srgb, var(--foreground) 88%, transparent);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+/* ---------- Status e localização ---------- */
+.home-header__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.8125rem;
+}
+
+.home-header__meta li {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.home-header__status {
+    color: var(--primary);
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 767px) {
+    .home-header__banner {
+        height: 7rem;
+    }
+
+    .home-header__body {
+        padding-inline: 1rem;
+    }
+
+    .home-header__avatar {
+        width: 6.5rem;
+        height: 6.5rem;
+        margin-top: -2.5rem;
+    }
+
+    .home-header__name {
+        font-size: 1.25rem;
+    }
+
+    .home-header__title {
+        font-size: 0.9375rem;
+    }
+}
