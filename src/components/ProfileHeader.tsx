@@ -1,9 +1,10 @@
 import { MapPin, Globe, Mail } from "lucide-react";
 import "./ProfileHeader.css";
 import profileLinks from "@/data/profileLinks";
-import profile from "@/data/profile";
+import { getProfile } from "@/data/profile";
 
 export default function ProfileHeader() {
+    let profile = getProfile
     const { name, title, handle, location, links } = profileLinks;
 
     return (

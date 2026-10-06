@@ -1,47 +1,39 @@
-import {
-    title
-} from "framer-motion/client";
-import {
-    Languages
-} from "lucide-react";
+import { language } from "@/utils/languageSwitcher";
 
 const english_profile = {
-    subtitle: "Backend Software Engeneer",
+    subtitle: "Backend Software Engineer",
     location: "Belo Horizonte, MG, Brazil",
-    stats: [{
-            value: "4+",
-            label: "Years coding"
-        },
-        {
-            value: "1+",
-            label: "Year professional experience"
-        },
-        {
-            value: "5",
-            label: "Projects shipped"
-        },
-        {
-            value: "4",
-            label: "Systems in prod"
-        },
+    stats: [
+        { value: "4+", label: "Years coding" },
+        { value: "1+", label: "Year professional experience" },
+        { value: "5", label: "Projects shipped" },
+        { value: "4", label: "Systems in prod" },
     ],
     about: {
         title: "About",
-        text: "I'm a Software Engineering student focused on backend development and software architecture. I enjoy building practical solutions, working with APIs and databases, and continuously learning new technologies and better ways to build software."
+        text: "I'm a Software Engineering student focused on backend development and software architecture. I enjoy building practical solutions, working with APIs and databases, and continuously learning new technologies and better ways to build software.",
     },
     techs: {
         title: "Technical DNA — Skill matrix",
-        Languages: ["TypeScript", "Python", "Java", "Javascript", "C++", "C"],
+        labels: {
+            languages: "Languages",
+            frameworks: "Frameworks",
+            databases: "Databases",
+            tools: "Tools & Cloud",
+            concepts: "Concepts",
+        },
+        languages: ["TypeScript", "Python", "Java", "Javascript", "C++", "C"],
         frameworks: ["Django", "Spring Boot", "React"],
         databases: ["PostgreSQL", "MongoDB", "MySQL"],
         tools: ["Docker"],
-        concepts: ["API", "ORM", "Block Chain"]
+        concepts: ["API", "ORM", "Blockchain"],
     },
     education: {
         title: "Education",
-        items: [{
-                title: "Software Engeneering",
-                organization: "Pontifical Catholic University of Minas Gerais (PUC-MG)",
+        items: [
+            {
+                title: "Software Engineering",
+                organization: "Pontifical Catholic University of Minas Gerais (PUC Minas)",
                 period: "2026 — 2029 (expected)",
                 description: "Software development, engineering practices, and system design.",
             },
@@ -49,43 +41,94 @@ const english_profile = {
                 title: "Information Technology Technical Degree",
                 organization: "Federal Center for Technological Education of Minas Gerais (CEFET-MG)",
                 period: "2023 — 2025",
-                description: "Programming, databases, web development, and software engineerin.",
+                description: "Programming, databases, web development, and software engineering.",
             },
-        ]
+        ],
     },
     certifications: {
         title: "Certifications",
-        items: [{
-                title: "AWS Certified Solutions Architect — Associate",
-                issuer: "Amazon",
-                year: 2025
-            },
-            {
-                title: "CKA: Certified Kubernetes Administrator",
-                issuer: "CNCF",
-                year: 2024
-            },
-            {
-                title: "MongoDB Associate Developer",
-                issuer: "MongoDB University",
-                year: 2023
-            },
+        items: [
+            { title: "AWS Certified Solutions Architect — Associate", issuer: "Amazon", year: 2025 },
+            { title: "CKA: Certified Kubernetes Administrator", issuer: "CNCF", year: 2024 },
+            { title: "MongoDB Associate Developer", issuer: "MongoDB University", year: 2023 },
         ],
     },
     languages: {
         title: "Languages",
-        items: [{
-                name: "Portuguese",
-                level: "Native"
-            },
-            {
-                name: "English",
-                level: "Professional (C1)"
-            }
+        items: [
+            { name: "Portuguese", level: "Native" },
+            { name: "English", level: "Professional (C1)" },
         ],
     },
 };
 
-var profile = english_profile
+const portuguese_profile = {
+    subtitle: "Engenheiro de Software Backend",
+    location: "Belo Horizonte, MG, Brasil",
+    stats: [
+        { value: "4+", label: "Anos programando" },
+        { value: "1+", label: "Ano de experiência profissional" },
+        { value: "5", label: "Projetos entregues" },
+        { value: "4", label: "Sistemas em produção" },
+    ],
+    about: {
+        title: "Sobre",
+        text: "Sou estudante de Engenharia de Software com foco em desenvolvimento backend e arquitetura de software. Gosto de construir soluções práticas, trabalhar com APIs e bancos de dados e estar sempre aprendendo novas tecnologias e melhores formas de desenvolver software.",
+    },
+    techs: {
+        title: "DNA Técnico — Matriz de habilidades",
+        labels: {
+            languages: "Linguagens",
+            frameworks: "Frameworks",
+            databases: "Bancos de dados",
+            tools: "Ferramentas & Cloud",
+            concepts: "Conceitos",
+        },
+        languages: ["TypeScript", "Python", "Java", "Javascript", "C++", "C"],
+        frameworks: ["Django", "Spring Boot", "React"],
+        databases: ["PostgreSQL", "MongoDB", "MySQL"],
+        tools: ["Docker"],
+        concepts: ["API", "ORM", "Blockchain"],
+    },
+    education: {
+        title: "Formação",
+        items: [
+            {
+                title: "Engenharia de Software",
+                organization: "Pontifícia Universidade Católica de Minas Gerais (PUC Minas)",
+                period: "2026 — 2029 (previsto)",
+                description: "Desenvolvimento de software, práticas de engenharia e design de sistemas.",
+            },
+            {
+                title: "Técnico em Informática",
+                organization: "Centro Federal de Educação Tecnológica de Minas Gerais (CEFET-MG)",
+                period: "2023 — 2025",
+                description: "Programação, bancos de dados, desenvolvimento web e engenharia de software.",
+            },
+        ],
+    },
+    certifications: {
+        title: "Certificações",
+        items: [
+            { title: "AWS Certified Solutions Architect — Associate", issuer: "Amazon", year: 2025 },
+            { title: "CKA: Certified Kubernetes Administrator", issuer: "CNCF", year: 2024 },
+            { title: "MongoDB Associate Developer", issuer: "MongoDB University", year: 2023 },
+        ],
+    },
+    languages: {
+        title: "Idiomas",
+        items: [
+            { name: "Português", level: "Nativo" },
+            { name: "Inglês", level: "Profissional (C1)" },
+        ],
+    },
+};
 
-export default profile;
+const profiles = {
+    en: english_profile,
+    pt: portuguese_profile,
+};
+
+export function getProfile() {
+    return profiles[language] ?? english_profile;
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Home, User, FolderGit2, Briefcase, Quote, Mail, Sun, Moon } from "lucide-react";
 import "./SideBar.css";
+import {switchLanguage, useLanguage} from "@/utils/languageSwitcher"
 
 const links = [
     { label: "Home", to: "/", icon: Home, end: true },
@@ -13,6 +14,7 @@ const links = [
 ];
 
 export default function Sidebar() {
+    const language = useLanguage()
     const [dark, setDark] = useState(
         () => localStorage.getItem("theme") !== "light"
     );
@@ -28,8 +30,15 @@ export default function Sidebar() {
                 <div className="brand__logo">R</div>
                 <span className="brand__name">Portfolio</span>
                 <div className="lang-switch" role="group" aria-label="Idioma / Language">
-                    <button type="button" className="lang-switch__btn lang-switch__btn--active">EN</button>
-                    <button type="button" className="lang-switch__btn">PT</button>
+                    <button
+                        type="button"
+                        className="lang-switch"
+                        onClick={switchLanguage}
+                        aria-label="Switch language / Trocar idioma"
+                    >
+                        <span className={`lang-switch__btn${language === "en" ? " lang-switch__btn--active" : ""}`}>EN</span>
+                        <span className={`lang-switch__btn${language === "pt" ? " lang-switch__btn--active" : ""}`}>PT</span>
+                    </button>
                 </div>
             </div>
 

@@ -34,25 +34,11 @@
 }
 
 .lang-switch {
-    display: flex;
-    margin-left: auto;
-    padding: 0.125rem;
-    border: 1px solid var(--border);
-    border-radius: 0.5rem;
-    background: var(--card);
+    cursor: pointer;
 }
 
 .lang-switch__btn {
-    padding: 0.25rem 0.5rem;
-    border: 0;
-    border-radius: 0.375rem;
-    background: transparent;
-    color: var(--muted);
-    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    cursor: pointer;
+    display: inline-block;
 }
 
 .lang-switch__btn--active {
