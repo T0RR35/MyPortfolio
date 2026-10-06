@@ -27,10 +27,6 @@
     padding: 1rem;
     overflow: hidden;
     border-bottom: 1px solid var(--line);
-    background-image:
-        linear-gradient(to right, color-mix(in srgb, var(--foreground) 6%, transparent) 1px, transparent 1px),
-        linear-gradient(to bottom, color-mix(in srgb, var(--foreground) 6%, transparent) 1px, transparent 1px);
-    background-size: 2.5rem 2.5rem;
 }
 
 .project-card__image {
