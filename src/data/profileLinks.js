@@ -1,22 +1,22 @@
 import { MapPin, Globe, Mail } from "lucide-react";
 const profileLinks = [{
         label: "GitHub",
-        href: "https://github.com/",
+        href: "https://github.com/T0RR35",
         icon: Mail
     },
     {
         label: "LinkedIn",
-        href: "https://linkedin.com/",
+        href: "https://linkedin.com/in/rafaeltorresmodesto/",
         icon: Globe
     },
     {
-        label: "Website",
-        href: "https://example.com/",
+        label: "WhatsApp",
+        href: "https://wa.me/5531989790048",
         icon: Globe
     },
     {
         label: "E-mail",
-        href: "mailto:contato@example.com",
+        href: "mailto:modestorresrafael@gmail.com",
         icon: Mail
     }
 ]
