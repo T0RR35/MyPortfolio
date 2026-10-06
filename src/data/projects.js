@@ -8,7 +8,8 @@ const english_projects = {
             status: "Completed",
             description:
                 "Remade the classic Desert Strike from scratch — helicopter combat, explosions, and 90s nostalgia in pixel art.",
-            image_path: "../../public/avatar.jpg",
+            image_path: "../../public/desert-strike-img.png",
+            gif_path: "../../public/desert-strike-gif.gif",
                 role: "Creator & maintainer",
             period: "2025",
             stack: ["Java"],

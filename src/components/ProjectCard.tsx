@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Calendar, CircleDot, Bot } from "lucide-react";
 import "./ProjectCard.css";
 
@@ -6,6 +7,7 @@ export interface Project {
     status?: string;
     description: string;
     image_path: string;
+    gif_path: string;
     role: string;
     period: string;
     stack: string[];
@@ -18,11 +20,67 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
-    const { name, status, description, image_path, role, period, stack = [], repo, demo } = project;
-    const deps = stack.map((tech) => `"${tech.toLowerCase()}"`).join(" · ");
+    const { name, status, description, image_path, gif_path, role, period, stack = [], repo, demo } = project;
+
+    const [gifSrc, setGifSrc] = useState<string | null>(null);
+    const gifBlob = useRef<Blob | null>(null);
+    const currentUrl = useRef<string | null>(null);
+
+    // Baixa a gif uma vez e guarda o arquivo na memória
+    useEffect(() => {
+        if (!gif_path) return;
+        let cancelled = false;
+
+        fetch(gif_path)
+            .then((res) => res.blob())
+            .then((blob) => {
+                if (!cancelled) gifBlob.current = blob;
+            })
+            .catch(() => { });
+
+        return () => {
+            cancelled = true;
+            if (currentUrl.current) URL.revokeObjectURL(currentUrl.current);
+        };
+    }, [gif_path]);
+
+    const play = () => {
+        if (!gif_path) return;
+        if (currentUrl.current) URL.revokeObjectURL(currentUrl.current);
+
+        // URL nova a cada hover = a gif sempre começa do frame 1
+        if (gifBlob.current) {
+            const url = URL.createObjectURL(gifBlob.current);
+            currentUrl.current = url;
+            setGifSrc(url);
+        } else {
+            // ainda não terminou de baixar: usa o caminho normal
+            currentUrl.current = null;
+            setGifSrc(gif_path);
+        }
+    };
+
+    const stop = () => {
+        if (currentUrl.current) {
+            URL.revokeObjectURL(currentUrl.current);
+            currentUrl.current = null;
+        }
+        setGifSrc(null);
+    };
 
     return (
-        <article className="project-card">
+        <article
+            className="project-card"
+            onMouseEnter={play}
+            onMouseLeave={stop}
+            onFocus={(e) => {
+                // só navegação por teclado; clique do mouse não prende o estado
+                if (e.target.matches(":focus-visible")) play();
+            }}
+            onBlur={(e) => {
+                if (!e.currentTarget.contains(e.relatedTarget)) stop();
+            }}
+        >
             <div className="project-card__cover" aria-hidden="true">
                 {image_path ? (
                     <img className="project-card__image" src={image_path} alt="" loading="lazy" />
@@ -31,10 +89,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 )}
 
                 <div className="project-card__terminal">
-                    <p>
-                        <span className="project-card__prompt">$</span> cat deps.json
-                    </p>
-                    <p>{deps}</p>
+                    {gifSrc && (
+                        <img className="project-card__image project-card__gif" src={gifSrc} alt="" />
+                    )}
                 </div>
             </div>
 
@@ -88,7 +145,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
                     <a
                         className="project-card__open"
-                        href={demo ?? repo}
+                        href={demo || repo}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Abrir ${name}`}

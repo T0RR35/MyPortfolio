@@ -9,16 +9,16 @@
     border: 1px solid var(--line);
     border-radius: 1rem;
     background: color-mix(in srgb, var(--foreground) 4%, var(--background));
-    transition: border-color 0.25s, box-shadow 0.25s;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.3s ease;
 }
 
 .project-card:hover,
 .project-card:focus-within {
     border-color: color-mix(in srgb, var(--accent) 70%, transparent);
     box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent);
+    transform: scale(1.03);
 }
 
-/* ---------- Capa (grid + nome / terminal) ---------- */
 .project-card__cover {
     position: relative;
     display: grid;
@@ -39,47 +39,40 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: filter 0.25s, transform 0.25s;
-}
-
-.project-card:hover .project-card__image,
-.project-card:focus-within .project-card__image {
-    filter: brightness(0.3) blur(2px);
-    transform: scale(1.04);
-}
-
-/* nome e terminal ocupam a mesma célula e alternam por opacidade */
-.project-card__cover-name,
-.project-card__terminal {
-    grid-area: 1 / 1;
-    transition: opacity 0.25s, transform 0.25s;
 }
 
 .project-card__cover-name {
+    grid-area: 1 / 1;
     color: var(--muted);
     font-family: var(--mono);
     font-size: 0.875rem;
+    transition: opacity 0.25s, transform 0.25s;
 }
 
 .project-card__terminal {
-    position: relative;
-    max-width: 100%;
-    max-width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--line);
-    border-radius: 0.75rem;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
     background: var(--background);
-    color: color-mix(in srgb, var(--foreground) 85%, transparent);
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    line-height: 1.6;
     opacity: 0;
-    transform: translateY(6px);
+    transition: opacity 0.25s, transform 0.25s;
 }
 
 .project-card__terminal p {
     margin: 0;
     overflow-wrap: anywhere;
+}
+
+.project-card__gif {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transform: scale(1.05);
 }
 
 .project-card__prompt {
@@ -94,10 +87,8 @@
 .project-card:hover .project-card__terminal,
 .project-card:focus-within .project-card__terminal {
     opacity: 1;
-    transform: translateY(0);
 }
 
-/* ---------- Corpo ---------- */
 .project-card__body {
     display: flex;
     flex: 1;
@@ -144,7 +135,6 @@
     line-height: 1.6;
 }
 
-/* ---------- Meta (role / period) ---------- */
 .project-card__meta {
     display: flex;
     flex-wrap: wrap;
@@ -168,7 +158,6 @@
     font-weight: 600;
 }
 
-/* ---------- Stack ---------- */
 .project-card__stack {
     display: flex;
     flex-wrap: wrap;
@@ -188,7 +177,6 @@
     font-size: 0.75rem;
 }
 
-/* ---------- Rodapé ---------- */
 .project-card__footer {
     display: flex;
     align-items: center;
@@ -238,22 +226,6 @@
 .project-card__open:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
-}
-
-/* ---------- Touch / movimento reduzido ---------- */
-@media (hover: none) {
-    .project-card__cover-name {
-        opacity: 0;
-    }
-
-    .project-card__image {
-        filter: brightness(0.3) blur(2px);
-    }
-
-    .project-card__terminal {
-        opacity: 1;
-        transform: none;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
