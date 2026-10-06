@@ -1,6 +1,6 @@
 .project-card {
     --accent: var(--primary, #22c55e);
-    --line: color-mix(in srgb, var(--foreground) 12%, transparent);
+    --line: color-mix(in srgb, var(--foreground) 50%, transparent);
     --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
     display: flex;
@@ -10,6 +10,10 @@
     border-radius: 1rem;
     background: color-mix(in srgb, var(--foreground) 4%, var(--background));
     transition: border-color 0.25s, box-shadow 0.25s, transform 0.3s ease;
+    background-image:
+        linear-gradient(to right, color-mix(in srgb, var(--foreground) 3%, transparent) 1px, transparent 1px),
+        linear-gradient(to bottom, color-mix(in srgb, var(--foreground) 3%, transparent) 1px, transparent 1px);
+    background-size: 2.5rem 2.5rem;
 }
 
 .project-card:hover,
@@ -27,6 +31,10 @@
     padding: 1rem;
     overflow: hidden;
     border-bottom: 1px solid var(--line);
+    background-image: /* PADRAO CASO NAO QUEIRA COLOCAR IMAGEM */
+        linear-gradient(to right, color-mix(in srgb, var(--foreground) 25%, transparent) 1px, transparent 1px),
+        linear-gradient(to bottom, color-mix(in srgb, var(--foreground) 25%, transparent) 1px, transparent 1px);
+    background-size: 2.5rem 2.5rem;
 }
 
 .project-card__image {
@@ -115,7 +123,7 @@
     padding: 0.1875rem 0.625rem;
     border: 1px solid var(--line);
     border-radius: 999px;
-    color: color-mix(in srgb, var(--foreground) 85%, transparent);
+    color: color-mix(in srgb, var(--foreground) 50%, transparent);
     font-family: var(--mono);
     font-size: 0.6875rem;
 }
@@ -129,6 +137,7 @@
     color: var(--muted);
     font-size: 0.9375rem;
     line-height: 1.6;
+    overflow-wrap: break-word;
 }
 
 .project-card__meta {
