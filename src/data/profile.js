@@ -13,21 +13,21 @@ const english_profile = {
             label: "Years coding"
         },
         {
-            value: "2",
-            label: "outra label"
+            value: "1+",
+            label: "Year professional experience"
         },
         {
-            value: "6",
-            label: "outra label"
+            value: "5",
+            label: "Projects shipped"
         },
         {
-            value: "7",
-            label: "outra label"
+            value: "4",
+            label: "Systems in prod"
         },
     ],
     about: {
         title: "About",
-        text: "Currently, I'm pursuing a degree in Software Engineering at PUC Minas. I also hold a Technical degree (2023–2025) in Information Technology from the Federal Center for Technological Education of Minas Gerais (CEFET-MG). I have 1 year of professional experience in software development and previously worked as a Software Development Intern at the Belo Horizonte City Council, where I worked as a Full-Stack Developer using Django and Docker for a FullStack web application development."
+        text: "I'm a Software Engineering student focused on backend development and software architecture. I enjoy building practical solutions, working with APIs and databases, and continuously learning new technologies and better ways to build software."
     },
     techs: {
         title: "Technical DNA — Skill matrix",
@@ -43,13 +43,13 @@ const english_profile = {
                 title: "Software Engeneering",
                 organization: "Pontifical Catholic University of Minas Gerais (PUC-MG)",
                 period: "2026 — 2029 (expected)",
-                description: "descricaodescricaodescricaodescricaodescricaodescricao",
+                description: "Software development, engineering practices, and system design.",
             },
             {
                 title: "Information Technology Technical Degree",
                 organization: "Federal Center for Technological Education of Minas Gerais (CEFET-MG)",
                 period: "2023 — 2025",
-                description: "descricaodescricaodescricaodescricaodescricaodescricao",
+                description: "Programming, databases, web development, and software engineerin.",
             },
         ]
     },
