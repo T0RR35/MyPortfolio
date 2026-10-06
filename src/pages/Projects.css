@@ -1,0 +1,22 @@
+.projects {
+    padding: 0 1.25rem 1.25rem;
+}
+
+.projects__title {
+    margin: 0 0 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.projects__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    gap: 1rem;
+}
+
+@media (max-width: 767px) {
+    .projects {
+        padding-inline: 1rem;
+    }
+}
