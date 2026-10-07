@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Home, User, FolderGit2, Briefcase, Quote, Mail, Sun, Moon } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 import "./SideBar.css";
 import { switchLanguage, useLanguage } from "@/utils/languageSwitcher"
 import { useLinks } from "@/data/navLinks";

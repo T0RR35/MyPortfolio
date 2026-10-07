@@ -2,6 +2,8 @@ import ProfileHeader from "@/components/ProfileHeader";
 import { GraduationCap, Link2, Award, LanguagesIcon } from "lucide-react"
 import "./Profile.css"
 import { useProfile } from "@/data/profile";
+import SkillsGlobe from "../components/SkillsGlobe";
+import { globeSkills } from "@/data/globeSkills";
 
 
 export default function Profile() {
@@ -48,23 +50,31 @@ export default function Profile() {
                         {techsTitle}
                     </h2>
 
-                    {Object.entries(techsGroups).map(([key, items]) => {
-                        if (!items?.length) return null;
-                        const label = TECHS_LABELS[key.toLowerCase()] ?? key;
+                    <div className="profile-techs__layout">
+                        <div className="profile-techs__groups">
+                            {Object.entries(techsGroups).map(([key, items]) => {
+                                if (!items?.length) return null;
+                                const label = TECHS_LABELS[key.toLowerCase()] ?? key;
 
-                        return (
-                            <div key={key} className="profile-techs__group">
-                                <h3 className="profile-techs__label">{label}</h3>
-                                <ul className="profile-techs__list">
-                                    {items.map((tech) => (
-                                        <li key={tech} className="profile-techs__pill">
-                                            {tech}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        );
-                    })}
+                                return (
+                                    <div key={key} className="profile-techs__group">
+                                        <h3 className="profile-techs__label">{label}</h3>
+                                        <ul className="profile-techs__list">
+                                            {items.map((tech) => (
+                                                <li key={tech} className="profile-techs__pill">
+                                                    {tech}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        <div className="profile-techs__globe">
+                            <SkillsGlobe skills={globeSkills} />
+                        </div>
+                    </div>
                 </div>
             </section>
 
