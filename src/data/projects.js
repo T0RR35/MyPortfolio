@@ -1,15 +1,15 @@
-import { image } from "framer-motion/client";
+import {
+    useLanguage
+} from "@/utils/languageSwitcher";
 
 const english_projects = {
     title: "Projects",
-    items: [
-        {
+    items: [{
             name: "This Portfolio!",
             status: "On constant update",
-            description:
-                "My personal engineering portfolio, built as a data-driven React + TypeScript app: every section renders from typed content files, with a reusable component system, animated route transitions, and a bilingual setup.",
-            image_path: "../../public/",
-            gif_path: "../../public/",
+            description: "My personal engineering portfolio, built as a data-driven React + TypeScript app: every section renders from typed content files, with a reusable component system, animated route transitions, and a bilingual setup.",
+            image_path: "./",
+            gif_path: "./",
             role: "Creator & maintainer",
             period: "2026 — today",
             stack: ["React", "TypeScript"],
@@ -19,10 +19,9 @@ const english_projects = {
         {
             name: "Desert Strike Remake",
             status: "Completed",
-            description:
-                "Remade the classic Desert Strike from scratch... but online! Helicopter combat, explosions, and 90s nostalgia in pixel art using LibGDX library.",
-            image_path: "../../public/desert-strike-img.png",
-            gif_path: "../../public/desert-strike-gif.gif",
+            description: "Remade the classic Desert Strike from scratch... but online! Helicopter combat, explosions, and 90s nostalgia in pixel art using LibGDX library.",
+            image_path: "./desert-strike-img.png",
+            gif_path: "./desert-strike-gif.gif",
             role: "Creator & maintainer",
             period: "2025",
             stack: ["Java", "LibGDX", "Distributed Systems"],
@@ -32,10 +31,9 @@ const english_projects = {
         {
             name: "King Kong Remake",
             status: "Completed",
-            description:
-                "Remade the classic King Kong from Atari — climb the building, dodge the obstacles thrown by Kong, and rescue the damsel, all rebuilt from scratch in SFML library.",
-            image_path: "../../public/king-kong-img.png",
-            gif_path: "../../public/king-kong-gif.gif",
+            description: "Remade the classic King Kong from Atari — climb the building, dodge the obstacles thrown by Kong, and rescue the damsel, all rebuilt from scratch in SFML library.",
+            image_path: "./king-kong-img.png",
+            gif_path: "./king-kong-gif.gif",
             role: "Creator & maintainer",
             period: "2024",
             stack: ["C++"],
@@ -45,6 +43,53 @@ const english_projects = {
     ],
 };
 
-var projects = english_projects
+const portuguese_projects = {
+    title: "Projetos",
+    items: [{
+            name: "Esse Portfólio!",
+            status: "Em constante atualização",
+            description: "Meu portfólio pessoal de engenharia, construído como um app React + TypeScript orientado a dados: cada seção é renderizada a partir de arquivos de conteúdo tipados, com um sistema de componentes reutilizáveis, transições de rota animadas e suporte a dois idiomas.",
+            image_path: "./",
+            gif_path: "./",
+            role: "Criador e mantenedor",
+            period: "2026 — hoje",
+            stack: ["React", "TypeScript"],
+            repo: "https://github.com/T0RR35/MyPortfolio",
+            demo: "",
+        },
+        {
+            name: "Desert Strike Remake",
+            status: "Concluído",
+            description: "Refiz o clássico Desert Strike do zero... mas online! Combate de helicóptero, explosões e nostalgia dos anos 90 em pixel art, usando a biblioteca LibGDX.",
+            image_path: "./desert-strike-img.png",
+            gif_path: "./desert-strike-gif.gif",
+            role: "Criador e mantenedor",
+            period: "2025",
+            stack: ["Java", "LibGDX", "Sistemas Distribuídos"],
+            repo: "https://github.com/T0RR35/Desert-Strike-Remake",
+            demo: "",
+        },
+        {
+            name: "King Kong Remake",
+            status: "Concluído",
+            description: "Refiz o clássico King Kong do Atari — suba o prédio, desvie dos obstáculos lançados pelo Kong e resgate a donzela, tudo recriado do zero com a biblioteca SFML.",
+            image_path: "./king-kong-img.png",
+            gif_path: "./king-kong-gif.gif",
+            role: "Criador e mantenedor",
+            period: "2024",
+            stack: ["C++"],
+            repo: "https://github.com/T0RR35/King-Kong-Game",
+            demo: "",
+        },
+    ],
+};
 
-export default projects;
+const projects = {
+    en: english_projects,
+    pt: portuguese_projects,
+};
+
+export function useProjects() {
+    const language = useLanguage();
+    return projects[language] ?? english_projects;
+}

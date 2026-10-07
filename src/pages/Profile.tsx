@@ -1,11 +1,11 @@
 import ProfileHeader from "@/components/ProfileHeader";
 import { GraduationCap, Link2, Award, LanguagesIcon } from "lucide-react"
 import "./Profile.css"
-import { getProfile } from "@/data/profile";
+import { useProfile } from "@/data/profile";
 
 
 export default function Profile() {
-    let profile = getProfile()
+    const profile = useProfile();
     const TECHS_LABELS = {
         languages: "Languages",
         frameworks: "Frameworks",

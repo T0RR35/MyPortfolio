@@ -1,4 +1,27 @@
-import { language } from "@/utils/languageSwitcher";
+import { useLanguage } from "@/utils/languageSwitcher";
+import { MapPin, Globe, Mail, Smartphone, Bot } from "lucide-react";
+
+const profileLinks = [{
+        label: "GitHub",
+        href: "https://github.com/T0RR35",
+        icon: Bot
+    },
+    {
+        label: "LinkedIn",
+        href: "https://linkedin.com/in/rafaeltorresmodesto/",
+        icon: Globe
+    },
+    {
+        label: "WhatsApp",
+        href: "https://wa.me/5531989790048",
+        icon: Smartphone
+    },
+    {
+        label: "E-mail",
+        href: "mailto:modestorresrafael@gmail.com",
+        icon: Mail
+    }
+]
 
 const english_profile = {
     subtitle: "Backend Software Engineer",
@@ -129,6 +152,11 @@ const profiles = {
     pt: portuguese_profile,
 };
 
-export function getProfile() {
+export function useProfile() {
+    const language = useLanguage();
     return profiles[language] ?? english_profile;
+}
+
+export function useProfileLinks(){
+    return profileLinks;
 }

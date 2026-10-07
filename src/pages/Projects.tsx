@@ -1,8 +1,9 @@
 import ProjectCard from "@/components/ProjectCard";
-import projects from "@/data/projects";
+import { useProjects } from "@/data/projects";
 import "./Projects.css";
 
 export default function Projects() {
+    const projects = useProjects();
     return (
         <section className="projects" aria-labelledby="projects-title">
             {/* COLOCAR UM TITULO BONITO AQUI DPS*/}

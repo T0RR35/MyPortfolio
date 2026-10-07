@@ -2,18 +2,11 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Home, User, FolderGit2, Briefcase, Quote, Mail, Sun, Moon } from "lucide-react";
 import "./SideBar.css";
-import {switchLanguage, useLanguage} from "@/utils/languageSwitcher"
-
-const links = [
-    { label: "Home", to: "/", icon: Home, end: true },
-    { label: "Profile", to: "/profile", icon: User },
-    { label: "Projects", to: "/projects", icon: FolderGit2 },
-    { label: "Experience", to: "/experience", icon: Briefcase },
-    { label: "Reviews", to: "/reviews", icon: Quote },
-    { label: "Contact", to: "/contact", icon: Mail },
-];
+import { switchLanguage, useLanguage } from "@/utils/languageSwitcher"
+import { useLinks } from "@/data/navLinks";
 
 export default function Sidebar() {
+    const links = useLinks();
     const language = useLanguage()
     const [dark, setDark] = useState(
         () => localStorage.getItem("theme") !== "light"
@@ -33,9 +26,11 @@ export default function Sidebar() {
                     <button
                         type="button"
                         className="lang-switch"
+                        data-language={language}
                         onClick={switchLanguage}
                         aria-label="Switch language / Trocar idioma"
                     >
+                        <span className="lang-switch__thumb" aria-hidden="true" />
                         <span className={`lang-switch__btn${language === "en" ? " lang-switch__btn--active" : ""}`}>EN</span>
                         <span className={`lang-switch__btn${language === "pt" ? " lang-switch__btn--active" : ""}`}>PT</span>
                     </button>
