@@ -1,4 +1,4 @@
-import { MapPin, Globe, Mail } from "lucide-react";
+import { MapPin } from "lucide-react";
 import "./ProfileHeader.css";
 import { useProfileLinks } from "@/data/profile";
 import { useProfile } from "@/data/profile";

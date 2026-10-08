@@ -10,6 +10,7 @@ export interface ExperienceEntry {
     responsibilities: string[];
     achievements: string[];
     stack: string[];
+    logo?: string;
 }
 
 export interface ExperienceData {
@@ -55,6 +56,7 @@ const english_experience: ExperienceData = {
                 "Front-end integrated end to end with the blockchain network.",
             ],
             stack: ["Solidity", "Hyperledger Besu", "Web3.js", "Ethers.js", "React", "TypeScript"],
+            logo: "./prodemge.png",
         },
         {
             role: "Fullstack Software Engineering Intern",
@@ -81,6 +83,7 @@ const english_experience: ExperienceData = {
                 "Delivered a solution validated and approved by the IT department supervisor.",
             ],
             stack: ["Python", "Django", "PostgreSQL", "Docker", "JavaScript", "REST APIs", "Git"],
+            logo: "./cmbh.png",
         },
     ],
 };
@@ -116,6 +119,7 @@ const portuguese_experience: ExperienceData = {
                 "Front-end integrado de ponta a ponta com a rede blockchain.",
             ],
             stack: ["Solidity", "Hyperledger Besu", "Web3.js", "Ethers.js", "React", "TypeScript"],
+            logo: "./prodemge.png",
         },
         {
             role: "Estagiário Fullstack de Engenharia de Software",
@@ -142,6 +146,7 @@ const portuguese_experience: ExperienceData = {
                 "Entrega de uma solução validada e aprovada pelo supervisor da área de TI.",
             ],
             stack: ["Python", "Django", "PostgreSQL", "Docker", "JavaScript", "APIs REST", "Git"],
+            logo: "./cmbh.png",
         },
     ],
 };

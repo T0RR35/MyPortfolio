@@ -1,3 +1,6 @@
+/* Um item da timeline. Define as próprias variáveis, então funciona
+   também fora da página Experience. */
+
 .exp-item {
     --accent: var(--primary, #22c55e);
     --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -27,8 +30,28 @@
     color: var(--accent);
 }
 
+/* ---------- Logo + título lado a lado ---------- */
+.exp-item__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+}
+
+.exp-item__logo {
+    flex-shrink: 0;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 0.375rem;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, var(--foreground) 6%, var(--background));
+    object-fit: contain;
+}
+
 /* ---------- Cabeçalho do item (botão de expandir) ---------- */
 .exp-item__heading {
+    flex: 1;
+    min-width: 0;
     margin: 0;
     font: inherit;
 }
@@ -92,7 +115,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    font-size: 1.125rem;
+    font-size: 1.05rem;
     font-weight: 600;
 }
 
@@ -107,6 +130,7 @@
     align-items: center;
     gap: 0.25rem;
     color: var(--muted);
+    font-size: 0.95rem;
     font-weight: 500;
 }
 
@@ -229,16 +253,6 @@
     white-space: nowrap;
 }
 
-.exp-item:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: -2.5rem; /* metade dos 5 rem que separam cada experienceItem (isso ta configurado no experience.css) */
-    left: 2.75rem; 
-    border-bottom: 1px solid var(--line);
-}
-
-
 /* ---------- Mobile ---------- */
 @media (max-width: 767px) {
     .exp-item {
@@ -249,8 +263,9 @@
         font-size: 1.125rem;
     }
 
-    .exp-item:not(:last-child)::after {
-        left: 2.5rem;
+    .exp-item__logo {
+        width: 2.75rem;
+        height: 2.75rem;
     }
 }
 

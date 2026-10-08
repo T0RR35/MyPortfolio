@@ -1,6 +1,5 @@
 import { useLocation, useOutlet } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Outlet } from "react-router-dom";
 import SideBar from "./SideBar";
 import "./Layout.css";
 

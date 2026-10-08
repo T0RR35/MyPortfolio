@@ -9,7 +9,7 @@ interface ExperienceItemProps {
     defaultOpen?: boolean;
 }
 
-export function ExperienceItem({ item, labels, defaultOpen = false }: ExperienceItemProps) {
+export default function ExperienceItem({ item, labels, defaultOpen = false }: ExperienceItemProps) {
     const [open, setOpen] = useState(defaultOpen);
     const detailsId = useId();
 
@@ -19,33 +19,39 @@ export function ExperienceItem({ item, labels, defaultOpen = false }: Experience
                 <Briefcase size={12} />
             </span>
 
-            <h3 className="exp-item__heading">
-                <button
-                    type="button"
-                    className="exp-item__toggle"
-                    aria-expanded={open}
-                    aria-controls={detailsId}
-                    onClick={() => setOpen((v) => !v)}
-                >
-                    <span className="exp-item__top">
-                        <span className="exp-item__role">{item.role}</span>
-                        <span className="exp-item__tag">{item.tag}</span>
-                        <ChevronDown size={18} aria-hidden="true" className="exp-item__chevron" />
-                        <span className="exp-sr-only">{labels.toggle}</span>
-                    </span>
+            <div className="exp-item__header">
+                {item.logo && (
+                    <img className="exp-item__logo" src={item.logo} alt="" loading="lazy" />
+                )}
 
-                    <span className="exp-item__company">
-                        {item.company}
-                        <span className="exp-item__dot" aria-hidden="true"> · </span>
-                        <span className="exp-item__location">
-                            <MapPin size={14} aria-hidden="true" />
-                            {item.location}
+                <h3 className="exp-item__heading">
+                    <button
+                        type="button"
+                        className="exp-item__toggle"
+                        aria-expanded={open}
+                        aria-controls={detailsId}
+                        onClick={() => setOpen((v) => !v)}
+                    >
+                        <span className="exp-item__top">
+                            <span className="exp-item__role">{item.role}</span>
+                            <span className="exp-item__tag">{item.tag}</span>
+                            <ChevronDown size={18} aria-hidden="true" className="exp-item__chevron" />
+                            <span className="exp-sr-only">{labels.toggle}</span>
                         </span>
-                    </span>
 
-                    <span className="exp-item__period">{item.period}</span>
-                </button>
-            </h3>
+                        <span className="exp-item__company">
+                            {item.company}
+                            <span className="exp-item__dot" aria-hidden="true"> · </span>
+                            <span className="exp-item__location">
+                                <MapPin size={14} aria-hidden="true" />
+                                {item.location}
+                            </span>
+                        </span>
+
+                        <span className="exp-item__period">{item.period}</span>
+                    </button>
+                </h3>
+            </div>
 
             <p className="exp-item__description">{item.description}</p>
 

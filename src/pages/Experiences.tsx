@@ -1,5 +1,5 @@
 import { useExperience } from "@/data/experiences";
-import { ExperienceItem } from "@/components/ExperienceItem";
+import ExperienceItem from "@/components/ExperienceItem";
 import "./Experiences.css";
 
 export default function Experiences() {
