@@ -39,7 +39,7 @@ const english_experience: ExperienceData = {
         {
             role: "Blockchain & Web3 Developer Intern",
             tag: "Internship · Hybrid",
-            company: "Minas Gerais Information Technology Company (Prodemge)",
+            company: "Minas Gerais Information Technology Company (PRODEMGE)",
             location: "Belo Horizonte, MG, Brazil",
             period: "Oct 2026 — present",
             description:
@@ -61,7 +61,7 @@ const english_experience: ExperienceData = {
         {
             role: "Fullstack Software Engineering Intern",
             tag: "Internship · On-site",
-            company: "Belo Horizonte City Council",
+            company: "Belo Horizonte City Council (CMBH)",
             location: "Belo Horizonte, MG, Brazil",
             period: "Mar 2026 — Aug 2026",
             description:
@@ -102,9 +102,9 @@ const portuguese_experience: ExperienceData = {
         {
             role: "Estagiário Desenvolvedor Blockchain & Web3",
             tag: "Estágio · Híbrido",
-            company: "Companhia de Tecnologia da Informação de Minas Gerais (Prodemge)",
+            company: "Companhia de Tecnologia da Informação de Minas Gerais (PRODEMGE)",
             location: "Belo Horizonte, MG, Brasil",
-            period: "Set 2026 — atual",
+            period: "Out 2026 — atual",
             description:
                 "Desenvolvo soluções blockchain e Web3: smart contracts em Hyperledger Besu e interfaces descentralizadas em React e TypeScript, contribuindo para a arquitetura técnica de dados on-chain e off-chain.",
             responsibilities: [
@@ -124,7 +124,7 @@ const portuguese_experience: ExperienceData = {
         {
             role: "Estagiário Fullstack de Engenharia de Software",
             tag: "Estágio · Presencial",
-            company: "Câmara Municipal de Belo Horizonte",
+            company: "Câmara Municipal de Belo Horizonte (CMBH)",
             location: "Belo Horizonte, MG, Brasil",
             period: "Mar 2026 — Ago 2026",
             description:

@@ -10,3 +10,4 @@ criar banner pra cada projeto (qual eh academico, profissional, etc)
 wakatime no perfil
 mudar o fundo da imagem pra combinar com o tema claro
 limpar o f12
+ajeitar para mobile
