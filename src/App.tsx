@@ -4,7 +4,7 @@ import { ThemeProvider } from "next-themes";
 import Home from "@/pages/Home";
 import Profile from "@/pages/Profile";
 import Projects from "@/pages/Projects";
-import Experience from "@/pages/Experience";
+import Experience from "@/pages/Experiences";
 import Reviews from "@/pages/Reviews";
 import Contact from "@/pages/Contact";
 import PageNotFound from "./pages/PageNotFound";

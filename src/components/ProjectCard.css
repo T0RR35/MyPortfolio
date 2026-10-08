@@ -11,8 +11,8 @@
     background: color-mix(in srgb, var(--foreground) 4%, var(--background));
     transition: border-color 0.25s, box-shadow 0.25s, transform 0.3s ease;
     background-image:
-        linear-gradient(to right, color-mix(in srgb, var(--foreground) 3%, transparent) 1px, transparent 1px),
-        linear-gradient(to bottom, color-mix(in srgb, var(--foreground) 3%, transparent) 1px, transparent 1px);
+        linear-gradient(to right, color-mix(in srgb, var(--foreground) 6%, transparent) 1px, transparent 1px),
+        linear-gradient(to bottom, color-mix(in srgb, var(--foreground) 6%, transparent) 1px, transparent 1px);
     background-size: 2.5rem 2.5rem;
 }
 
