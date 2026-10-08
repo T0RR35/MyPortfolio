@@ -3,7 +3,7 @@
     --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     --line: color-mix(in srgb, var(--foreground) 14%, transparent);
 
-    padding: 1.25rem;
+    padding: 2rem;
 }
 
 /* ---------- Cabeçalho ---------- */
@@ -15,7 +15,7 @@
     margin: 0 0 0.5rem;
     color: var(--accent);
     font-family: var(--mono);
-    font-size: 0.75rem;
+    font-size: 1.2rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
 }
@@ -36,18 +36,18 @@
     line-height: 1.55;
 }
 
-/* ---------- Timeline ---------- */
+/* ---------- Timeline (lista + linha tracejada) ---------- */
 .experience__timeline {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 2.25rem;
+    gap: 5rem;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-/* linha tracejada vertical, atrás dos nós */
+/* linha vertical, atrás dos nós de cada item */
 .experience__timeline::before {
     content: "";
     position: absolute;
@@ -55,233 +55,6 @@
     bottom: 0;
     left: 0.75rem;
     border-left: 1px dashed var(--line);
-}
-
-.exp-item {
-    position: relative;
-    padding-left: 2.75rem;
-}
-
-.exp-item > p,
-.exp-item p {
-    margin: 0;
-}
-
-/* nó: círculo com ícone sobre a linha */
-.exp-item__node {
-    position: absolute;
-    top: 0.125rem;
-    left: 0;
-    z-index: 1;
-    display: grid;
-    place-items: center;
-    width: 1.5rem;
-    height: 1.5rem;
-    border: 1.5px solid var(--accent);
-    border-radius: 50%;
-    background: var(--background);
-    color: var(--accent);
-}
-
-/* ---------- Cabeçalho do item (botão de expandir) ---------- */
-.exp-item__heading {
-    margin: 0;
-    font: inherit;
-}
-
-.exp-item__toggle {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    width: 100%;
-    padding: 0;
-    border: 0;
-    background: none;
-    color: inherit;
-    font: inherit;
-    text-align: left;
-    cursor: pointer;
-}
-
-.exp-item__toggle:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 4px;
-    border-radius: 0.5rem;
-}
-
-.exp-item__top {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.25rem 0.875rem;
-}
-
-.exp-item__role {
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-}
-
-.exp-item__tag {
-    color: var(--accent);
-    font-family: var(--mono);
-    font-size: 0.75rem;
-}
-
-.exp-item__chevron {
-    align-self: center;
-    margin-left: auto;
-    color: var(--muted);
-    transition: transform 0.25s, color 0.2s;
-}
-
-.exp-item__toggle:hover .exp-item__chevron {
-    color: var(--accent);
-}
-
-.exp-item--open .exp-item__chevron {
-    transform: rotate(180deg);
-}
-
-.exp-item__company {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    font-size: 1.125rem;
-    font-weight: 600;
-}
-
-.exp-item__dot {
-    margin-inline: 0.25rem;
-    color: var(--muted);
-    white-space: pre;
-}
-
-.exp-item__location {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    color: var(--muted);
-    font-weight: 500;
-}
-
-.exp-item__period {
-    color: var(--muted);
-    font-family: var(--mono);
-    font-size: 0.8125rem;
-}
-
-.exp-item__description {
-    margin-top: 0.875rem !important;
-    color: var(--muted);
-    font-size: 0.9375rem;
-    line-height: 1.6;
-}
-
-/* ---------- Detalhes (abre/fecha) ---------- */
-.exp-item__details {
-    display: grid;
-    grid-template-rows: 0fr;
-    visibility: hidden;
-    transition: grid-template-rows 0.3s ease, visibility 0.3s;
-}
-
-.exp-item--open .exp-item__details {
-    grid-template-rows: 1fr;
-    visibility: visible;
-}
-
-.exp-item__details-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    min-height: 0;
-    overflow: hidden;
-}
-
-.exp-item--open .exp-item__details-inner {
-    padding-top: 1.25rem;
-}
-
-.exp-item__label {
-    margin: 0 0 0.625rem;
-    color: var(--muted);
-    font-family: var(--mono);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-.exp-checks,
-.exp-dots {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-size: 0.9375rem;
-    line-height: 1.5;
-}
-
-.exp-checks li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.625rem;
-}
-
-.exp-checks svg {
-    flex-shrink: 0;
-    margin-top: 0.25rem;
-    color: var(--accent);
-}
-
-.exp-dots li {
-    position: relative;
-    padding-left: 1.125rem;
-}
-
-.exp-dots li::before {
-    content: "";
-    position: absolute;
-    top: 0.5625rem;
-    left: 0.25rem;
-    width: 0.4375rem;
-    height: 0.4375rem;
-    border-radius: 50%;
-    background: var(--accent);
-}
-
-/* ---------- Stack ---------- */
-.exp-item__stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 1.125rem 0 0;
-    padding: 0;
-    list-style: none;
-}
-
-.exp-item__pill {
-    padding: 0.25rem 0.75rem;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--foreground) 5%, var(--background));
-    color: color-mix(in srgb, var(--foreground) 80%, transparent);
-    font-family: var(--mono);
-    font-size: 0.75rem;
-}
-
-/* texto só para leitor de tela */
-.exp-sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
 }
 
 /* ---------- Mobile ---------- */
@@ -292,20 +65,5 @@
 
     .experience__title {
         font-size: 1.75rem;
-    }
-
-    .exp-item {
-        padding-left: 2.5rem;
-    }
-
-    .exp-item__role {
-        font-size: 1.125rem;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .exp-item__details,
-    .exp-item__chevron {
-        transition: none;
     }
 }
