@@ -1,0 +1,80 @@
+.reviews {
+    --accent: var(--primary, #22c55e);
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    padding: 2rem;
+}
+
+/* ---------- Cabeçalho ---------- */
+.reviews__header {
+    margin-bottom: 2rem;
+}
+
+.reviews__eyebrow {
+    margin: 0 0 0.5rem;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 1.2rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.reviews__title {
+    margin: 0;
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.reviews__subtitle {
+    max-width: 42rem;
+    margin: 0.75rem 0 0;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+.reviews__cta {
+    margin-top: 1.25rem;
+    padding: 0.7rem 1.4rem;
+    border: 1px solid var(--accent);
+    border-radius: 0.5rem;
+    background: transparent;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.reviews__cta:hover,
+.reviews__cta:focus-visible {
+    background: var(--accent);
+    color: #000;
+}
+
+/* ---------- Grid: 2 colunas, cards da mesma linha com a mesma altura ---------- */
+.reviews__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4.5rem;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 767px) {
+    .reviews {
+        padding: 1rem;
+    }
+
+    .reviews__title {
+        font-size: 1.75rem;
+    }
+
+    .reviews__grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}

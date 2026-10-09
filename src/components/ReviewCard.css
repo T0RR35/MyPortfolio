@@ -1,0 +1,111 @@
+.review-card {
+    --accent: var(--primary, #22c55e);
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --line: color-mix(in srgb, var(--foreground) 12%, transparent);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--foreground) 4%, var(--background));
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.review-card:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    transform: translateY(-2px);
+}
+
+.review-card__icon {
+    flex-shrink: 0;
+    color: color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
+/* ---------- Texto ---------- */
+.review-card__quote {
+    overflow-wrap: break-word;
+    margin: 0;
+}
+
+.review-card__quote p {
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: color-mix(in srgb, var(--foreground) 92%, transparent);
+}
+
+/* ---------- Autor ---------- */
+.review-card__author {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    margin-top: auto;            /* cola o autor na base quando os textos têm tamanhos diferentes */
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+}
+
+.review-card__avatar {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+    border-radius: 0.875rem;
+    background: color-mix(in srgb, var(--accent) 10%, var(--background));
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.review-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-width: 0;
+}
+
+.review-card__name {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.review-card__role {
+    color: var(--muted);
+    font-size: 0.8125rem;
+}
+
+.review-card__meta {
+    overflow: hidden;
+    color: color-mix(in srgb, var(--muted) 80%, transparent);
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 479px) {
+    .review-card {
+        padding: 1.25rem;
+    }
+
+    .review-card__quote p {
+        font-size: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .review-card {
+        transition: none;
+    }
+
+    .review-card:hover {
+        transform: none;
+    }
+}

@@ -1,0 +1,126 @@
+.review-modal {
+    --accent: var(--primary, #22c55e);
+
+    width: min(36rem, calc(100vw - 2rem));
+    max-height: calc(100vh - 2rem);
+    padding: 0;
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
+    border-radius: 0.75rem;
+    background: var(--surface, #111);
+    color: inherit;
+    overflow: auto;
+}
+
+.review-modal::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+.review-modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.review-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.review-modal__title {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.review-modal__close {
+    border: 0;
+    background: none;
+    color: var(--muted, #999);
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.review-modal__close:hover {
+    color: inherit;
+}
+
+.review-modal__row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.review-modal__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.875rem;
+}
+
+.review-modal__field > span {
+    color: var(--muted, #999);
+}
+
+.review-modal__field input,
+.review-modal__field textarea {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.15));
+    border-radius: 0.5rem;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    box-sizing: border-box;
+}
+
+.review-modal__field textarea {
+    resize: vertical;
+}
+
+.review-modal__field input:focus-visible,
+.review-modal__field textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+.review-modal__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.review-modal__btn {
+    padding: 0.6rem 1.1rem;
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.2));
+    border-radius: 0.5rem;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.review-modal__btn--primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #000;
+    font-weight: 600;
+}
+
+.review-modal__btn:hover {
+    filter: brightness(1.1);
+}
+
+@media (max-width: 767px) {
+    .review-modal__form {
+        padding: 1rem;
+    }
+
+    .review-modal__row {
+        grid-template-columns: 1fr;
+    }
+}
