@@ -10,8 +10,15 @@ export default function Reviews() {
     const [modalOpen, setModalOpen] = useState(false);
     const [submitted, setSubmitted] = useState<ReviewEntry[]>([]);
 
-    const handleSubmit = (review: ReviewEntry) => {
-        addQuote(review);
+    const handleSubmit = async (review: ReviewEntry) => {
+        try {
+            await addQuote(review);
+
+            setSubmitted((prev) => [review, ...prev]);
+            setModalOpen(false);
+        } catch (error) {
+            console.error("Erro ao salvar avaliação:", error);
+        }
     };
 
     return (

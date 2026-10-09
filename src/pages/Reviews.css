@@ -61,6 +61,7 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 4.5rem;
+    padding-inline: 2rem;    
 }
 
 /* ---------- Mobile ---------- */

@@ -23,7 +23,6 @@ export default function ReviewFormModal({ open, onClose, onSubmit }: ReviewFormM
     const dialogRef = useRef<HTMLDialogElement>(null);
     const [form, setForm] = useState<ReviewEntry>(emptyForm);
 
-    // Abre/fecha o <dialog> nativo (já cuida de foco, Esc e inert no fundo)
     useEffect(() => {
         const dialog = dialogRef.current;
         if (!dialog) return;
