@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import type { ReviewEntry } from "@/data/reviews";
+import type { ReviewEntry } from "@/types/ReviewData";
 import "./ReviewFormModal.css";
 
 interface ReviewFormModalProps {

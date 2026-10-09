@@ -1,23 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/utils/languageSwitcher";
 import { fetchQuotes } from "@/services/reviewsService";
-
-export interface ReviewEntry {
-    author: string;
-    role: string;
-    relationship: string;
-    organization: string;
-    date: string;
-    quote: string;
-}
-
-export interface ReviewData {
-    eyebrow: string;
-    title: string;
-    subtitle: string;
-    btn_text: string,
-    items: ReviewEntry[];
-}
+import type { ReviewData, ReviewEntry } from "@/types/ReviewData";
 
 type Language = "en" | "pt";
 
