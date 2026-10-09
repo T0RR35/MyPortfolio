@@ -20,9 +20,9 @@ export default function Sidebar() {
     return (
         <div className="sidebar-inner">
             <div className="brand">
-                <div className="brand__logo">R</div>
-                <span className="brand__name">Portfolio</span>
-                <div className="lang-switch" role="group" aria-label="Idioma / Language">
+                <img className="brand__logo" src="/logo-png.png" alt="RT" />
+
+                <div className="lang-switch-wrap" role="group" aria-label="Idioma / Language">
                     <button
                         type="button"
                         className="lang-switch"

@@ -9,28 +9,17 @@
 .brand {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 0.625rem;
     padding: 0 0.25rem;
     margin-bottom: 1.5rem;
 }
 
 .brand__logo {
-    display: grid;
-    place-items: center;
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 0.625rem;
-    background: var(--primary);
-    color: #04120c;
-    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    font-size: 0.875rem;
-    font-weight: 700;
-}
-
-.brand__name {
-    font-size: 1.125rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    width: 3.25rem;
+    height: 3.25rem;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 .lang-switch {
@@ -51,6 +40,11 @@
     cursor: pointer;
     user-select: none;
     transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.lang-switch-wrap {
+    display: flex;
+    margin-left: auto;
 }
 
 .lang-switch:hover {
@@ -233,7 +227,6 @@
         padding: 0;
     }
 
-    .brand__name,
     .nav-link__label,
     .profile-card__info,
     .theme-btn__label {
