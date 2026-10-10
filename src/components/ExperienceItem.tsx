@@ -1,6 +1,6 @@
 import { useId, useState } from "react";
 import { Briefcase, Check, ChevronDown, MapPin } from "lucide-react";
-import type { ExperienceEntry, ExperienceData } from "@/data/experiences";
+import type { ExperienceEntry, ExperienceData } from "@/types/ExperienceData";
 import "./ExperienceItem.css";
 
 interface ExperienceItemProps {
