@@ -3,16 +3,27 @@ import { useProjects } from "@/data/projects";
 import "./Projects.css";
 
 export default function Projects() {
-    const projects = useProjects();
-    return (
-        <section className="projects" aria-labelledby="projects-title">
-            {/* COLOCAR UM TITULO BONITO AQUI DPS*/}
+    const { eyebrow, title, subtitle, items } = useProjects();
 
-            <div className="projects__grid">
-                {projects["items"].map((project) => (
-                    <ProjectCard key={project.name} project={project} />
-                ))}
-            </div>
-        </section>
+    return (
+        <>
+            <section className="projects__header">
+                <header>
+                    <p className="projects__eyebrow">{eyebrow}</p>
+                    <h1 id="projects-title" className="projects__title">
+                        {title}
+                    </h1>
+                    <p className="projects__subtitle">{subtitle}</p>
+                </header>
+            </section>
+
+            <section className="projects" aria-labelledby="projects-title">
+                <div className="projects__grid">
+                    {items.map((project) => (
+                        <ProjectCard key={project.name} project={project} />
+                    ))}
+                </div>
+            </section>
+        </>
     );
 }

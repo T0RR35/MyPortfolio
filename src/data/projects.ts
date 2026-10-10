@@ -1,9 +1,11 @@
-import {
-    useLanguage
-} from "@/utils/languageSwitcher";
+import { useLanguage } from "@/utils/languageSwitcher";
+import type { ProjectData } from "@/types/ProjectData";
 
-const english_projects = {
+const english_projects: ProjectData = {
+    eyebrow: "Build log",
     title: "Projects",
+    subtitle:
+        "A collection of projects showcasing my technical skills, creative problem-solving, and growth as a software engineer.",
     items: [{
             name: "This Portfolio!",
             status: "On constant update",
@@ -14,7 +16,7 @@ const english_projects = {
             period: "2026 — today",
             stack: ["React", "TypeScript"],
             repo: "https://github.com/T0RR35/MyPortfolio",
-            demo: "",
+            demo: ""
         },
         {
             name: "Desert Strike Remake",
@@ -43,8 +45,11 @@ const english_projects = {
     ],
 };
 
-const portuguese_projects = {
+const portuguese_projects: ProjectData = {
+    eyebrow: "Build log",
     title: "Projetos",
+    subtitle:
+        "Uma coleção de projetos que demonstram minhas habilidades técnicas, criatividade na resolução de problemas e evolução como engenheiro de software.",
     items: [{
             name: "Esse Portfólio!",
             status: "Em constante atualização",
@@ -84,12 +89,12 @@ const portuguese_projects = {
     ],
 };
 
-const projects = {
+const projects: Record<"en" | "pt", ProjectData> = {
     en: english_projects,
     pt: portuguese_projects,
 };
 
-export function useProjects() {
+export function useProjects(): ProjectData {
     const language = useLanguage();
-    return projects[language] ?? english_projects;
+    return projects[language as "en" | "pt"] ?? english_projects;
 }
