@@ -19,10 +19,10 @@
 //
 // O nome do arquivo começa com "_" para a Vercel NÃO transformá-lo em rota.
 
-import { useContact } from "@/data/contact";
-import { useExperience } from "@/data/experiences";
-import { useProjects } from "@/data/projects";
-import { useProfile } from "@/data/profile";
+import { useContact } from "./src/data/contact";
+import { useExperience } from "./src/data/experiences";
+import { useProjects } from "./src/data/projects";
+import { useProfile } from "./src/data/profile";
 
 const PROFILE = 
 "# QUEM SOU " + useProfile() +
