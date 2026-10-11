@@ -1,5 +1,6 @@
 import { useLanguage } from "@/utils/languageSwitcher";
-import { MapPin, Globe, Mail, Smartphone, Bot } from "lucide-react";
+import { Globe, Mail, Smartphone, Bot } from "lucide-react";
+import type { ProfileEntity } from "@/types/ProfileData";
 
 const profileLinks = [{
         label: "GitHub",
@@ -23,7 +24,7 @@ const profileLinks = [{
     }
 ]
 
-const english_profile = {
+const english_profile : ProfileEntity = {
     subtitle: "Backend Software Engineer",
     location: "Belo Horizonte, MG, Brazil",
     stats: [
@@ -85,7 +86,7 @@ const english_profile = {
     },
 };
 
-const portuguese_profile = {
+const portuguese_profile : ProfileEntity = {
     subtitle: "Engenheiro de Software Backend",
     location: "Belo Horizonte, MG, Brasil",
     stats: [
@@ -147,14 +148,14 @@ const portuguese_profile = {
     },
 };
 
-const profiles = {
+const profiles: Record<"en" | "pt", ProfileEntity> = {
     en: english_profile,
     pt: portuguese_profile,
 };
 
-export function useProfile() {
+export function useProfile(): ProfileEntity {
     const language = useLanguage();
-    return profiles[language] ?? english_profile;
+    return profiles[language as "en" | "pt"] ?? english_profile;
 }
 
 export function useProfileLinks(){

@@ -1,4 +1,3 @@
-import { useId, useState, type FormEvent } from "react";
 import { useContact } from "@/data/contact";
 import { useProfileLinks } from "@/data/profile";
 import "./Contact.css";
@@ -19,10 +18,6 @@ function displayValue(href: string): string {
 export default function Contact() {
     const { eyebrow, title, subtitle, form } = useContact();
     const links = useProfileLinks();
-    const [sent, setSent] = useState(false);
-
-    const id = useId();
-    const to = links.find((link) => link.href.startsWith("mailto:"))?.href.replace("mailto:", "");
 
     return (
         <section className="contact" aria-labelledby="contact-title">

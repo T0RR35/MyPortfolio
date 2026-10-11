@@ -4,10 +4,11 @@ import "./Profile.css"
 import { useProfile } from "@/data/profile";
 import SkillsGlobe from "../components/SkillsGlobe";
 import { globeSkills } from "@/data/globeSkills";
+import type { ProfileEntity } from "@/types/ProfileData";
 
 
 export default function Profile() {
-    const profile = useProfile();
+    const profile: ProfileEntity = useProfile();
     const TECHS_LABELS = {
         languages: "Languages",
         frameworks: "Frameworks",

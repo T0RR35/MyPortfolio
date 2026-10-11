@@ -1,7 +1,8 @@
 import { useState } from "react";
 import ReviewCard from "@/components/ReviewCard";
 import ReviewFormModal from "@/components/ReviewFormModal";
-import { useReview, type ReviewEntry } from "@/data/reviews";
+import type { ReviewEntry } from "@/types/ReviewData";
+import { useReview } from "@/data/reviews";
 import { addQuote } from "@/services/reviewsService";
 import "./Reviews.css";
 

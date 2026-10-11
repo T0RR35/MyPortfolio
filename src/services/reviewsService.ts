@@ -1,5 +1,5 @@
 import { supabase } from './supabase';
-import type { ReviewEntry } from '@/data/reviews'
+import type { ReviewEntry } from "@/types/ReviewData";
 
 export const PAGE_SIZE = 20;
 

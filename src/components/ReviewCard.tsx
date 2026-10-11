@@ -1,5 +1,5 @@
 import { Quote } from "lucide-react";
-import type { ReviewEntry } from "@/data/reviews";
+import type { ReviewEntry } from "@/types/ReviewData";
 import "./ReviewCard.css";
 
 interface ReviewCardProps {
