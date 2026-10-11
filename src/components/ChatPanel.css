@@ -1,0 +1,116 @@
+/* Casca do painel lateral (abrir / minimizar).
+   O visual da conversa fica em GeminiChat.css */
+
+.chat {
+    --accent: var(--primary, #22c55e);
+    --line: color-mix(in srgb, var(--foreground) 12%, transparent);
+    --chat-width: 19rem;          /* era 22rem */
+    --chat-width-min: 3.5rem;
+
+    /* desktop: painel "colado" à direita, ocupando a altura da tela */
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    width: var(--chat-width);
+    height: 100vh;
+    background: var(--background);
+    transition: width 0.25s ease;
+}
+
+.chat--minimized {
+    width: var(--chat-width-min);
+}
+
+.chat__panel {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.chat__panel[hidden] {
+    display: none;
+}
+
+/* ---------- Botão de abrir (painel minimizado) ---------- */
+.chat__launcher {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin: 1.25rem auto 0;
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    border-radius: 0.875rem;
+    background: color-mix(in srgb, var(--accent) 12%, var(--background));
+    color: var(--accent);
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.chat__launcher:hover {
+    background: color-mix(in srgb, var(--accent) 20%, var(--background));
+    transform: translateY(-2px);
+}
+
+.chat__launcher:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Telas sem espaço para o painel ao lado: vira camada flutuante
+   ========================================================================== */
+@media (max-width: 1279px) {
+    .chat {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 60;
+        width: min(21rem, 100vw);
+        height: auto;
+        border-left: 1px solid var(--line);
+        box-shadow: -12px 0 32px rgb(0 0 0 / 0.35);
+        transition: none;
+    }
+
+    /* minimizado: some o painel e sobra só o botão flutuante */
+    .chat--minimized {
+        width: 0;
+        border: 0;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .chat__launcher {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        width: 3.25rem;
+        height: 3.25rem;
+        margin: 0;
+        border-radius: 50%;
+        box-shadow: 0 8px 24px rgb(0 0 0 / 0.35);
+    }
+}
+
+/* acima da barra de navegação inferior do mobile */
+@media (max-width: 767px) {
+    .chat {
+        width: 100vw;
+        border-left: 0;
+    }
+
+    .chat__launcher {
+        bottom: calc(4.5rem + env(safe-area-inset-bottom));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .chat,
+    .chat__launcher {
+        transition: none;
+    }
+}

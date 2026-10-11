@@ -1,6 +1,7 @@
 import { useLocation, useOutlet } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import SideBar from "./SideBar";
+import ChatPanel from "./ChatPanel";
 import "./Layout.css";
 
 export default function Layout() {
@@ -29,6 +30,8 @@ export default function Layout() {
                     </motion.div>
                 </AnimatePresence>
             </main>
+
+            <ChatPanel />
         </div>
     );
 }

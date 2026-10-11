@@ -1,0 +1,414 @@
+.gemini-chat {
+    --accent: var(--primary, #22c55e);
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --line: color-mix(in srgb, var(--foreground) 12%, transparent);
+    --danger: #ef4444;
+
+    /* ocupa toda a altura do contêiner (painel lateral) */
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    background: var(--background);
+    color: var(--foreground);
+}
+
+.gemini-chat .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   Cabeçalho
+   ========================================================================== */
+.gemini-chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.gemini-chat-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 0;
+}
+
+.gemini-chat-title > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-width: 0;
+}
+
+.gemini-chat-title strong {
+    overflow: hidden;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.25;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.gemini-chat-avatar {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, var(--accent) 14%, var(--background));
+    color: var(--accent);
+    font-size: 1.125rem;
+}
+
+.gemini-chat-status {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    min-width: 0;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+}
+
+.gemini-chat-status-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.gemini-chat-status .dot {
+    flex-shrink: 0;
+    width: 0.4375rem;
+    height: 0.4375rem;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.gemini-chat-status .dot.typing {
+    animation: gemini-pulse 1s infinite ease-in-out;
+}
+
+@keyframes gemini-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.gemini-chat-actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 0.25rem;
+}
+
+.gemini-chat-icon-btn {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background: transparent;
+    color: var(--muted);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.gemini-chat-icon-btn:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--foreground) 8%, transparent);
+    color: var(--foreground);
+}
+
+.gemini-chat-icon-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Mensagens
+   ========================================================================== */
+.gemini-chat-messages {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-height: 0;
+    padding: 0.875rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+.gemini-msg {
+    display: flex;
+}
+
+.gemini-msg.model {
+    justify-content: flex-start;
+}
+
+.gemini-msg.user {
+    justify-content: flex-end;
+}
+
+.gemini-bubble {
+    max-width: 90%;
+    padding: 0.625rem 0.875rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+.gemini-msg.model .gemini-bubble {
+    border: 1px solid var(--line);
+    border-top-left-radius: 0.25rem;
+    background: color-mix(in srgb, var(--foreground) 5%, var(--background));
+}
+
+.gemini-msg.user .gemini-bubble {
+    border-top-right-radius: 0.25rem;
+    background: var(--accent);
+    color: #04130b;
+}
+
+.gemini-msg.error .gemini-bubble {
+    border-color: color-mix(in srgb, var(--danger) 45%, transparent);
+    background: color-mix(in srgb, var(--danger) 10%, var(--background));
+    color: color-mix(in srgb, var(--danger) 70%, var(--foreground));
+}
+
+/* dica / "resposta interrompida" embaixo da bolha */
+.gemini-bubble small {
+    display: block;
+    margin-top: 0.375rem;
+    color: var(--muted);
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+.gemini-msg.error .gemini-bubble small {
+    color: inherit;
+    opacity: 0.8;
+}
+
+/* ---------- Markdown dentro da bolha (MarkdownText) ---------- */
+.gemini-bubble p {
+    margin: 0;
+}
+
+.gemini-bubble p + p,
+.gemini-bubble p + ul,
+.gemini-bubble p + ol,
+.gemini-bubble ul + p,
+.gemini-bubble ol + p {
+    margin-top: 0.625rem;
+}
+
+.gemini-bubble ul,
+.gemini-bubble ol {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.gemini-bubble ul + ul,
+.gemini-bubble ol + ol,
+.gemini-bubble ul + ol,
+.gemini-bubble ol + ul {
+    margin-top: 0.625rem;
+}
+
+.gemini-bubble li + li {
+    margin-top: 0.25rem;
+}
+
+.gemini-bubble li::marker {
+    color: var(--accent);
+}
+
+.gemini-bubble strong {
+    font-weight: 700;
+}
+
+.gemini-bubble code {
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.375rem;
+    background: color-mix(in srgb, var(--foreground) 10%, transparent);
+    font-family: var(--mono);
+    font-size: 0.8125em;
+}
+
+/* ---------- Indicador "digitando" ---------- */
+.gemini-typing {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding-block: 0.375rem;
+}
+
+.gemini-typing span {
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 50%;
+    background: var(--muted);
+    animation: gemini-bounce 1s infinite ease-in-out;
+}
+
+.gemini-typing span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.gemini-typing span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes gemini-bounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+    30% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* ---------- Perguntas prontas ---------- */
+.gemini-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.gemini-suggestions button {
+    padding: 0.375rem 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: transparent;
+    color: color-mix(in srgb, var(--foreground) 85%, transparent);
+    font: inherit;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+}
+
+.gemini-suggestions button:hover {
+    border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+    color: var(--accent);
+}
+
+/* ==========================================================================
+   Caixa de texto
+   ========================================================================== */
+.gemini-chat-form {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    padding: 0.875rem 1rem 0.5rem;
+    border-top: 1px solid var(--line);
+}
+
+.gemini-chat-form textarea {
+    flex: 1;
+    min-width: 0;
+    max-height: 7rem;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid var(--line);
+    border-radius: 0.875rem;
+    background: color-mix(in srgb, var(--foreground) 4%, var(--background));
+    color: var(--foreground);
+    font: inherit;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    resize: none;
+    field-sizing: content; /* cresce com o texto (Chrome/Edge); nos outros fica em 1 linha */
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.gemini-chat-form textarea::placeholder {
+    color: color-mix(in srgb, var(--muted) 85%, transparent);
+}
+
+.gemini-chat-form textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.gemini-chat-form button {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0;
+    border-radius: 0.875rem;
+    background: var(--accent);
+    color: #04130b;
+    font-size: 1.0625rem;
+    cursor: pointer;
+    transition: filter 0.2s, opacity 0.2s;
+}
+
+.gemini-chat-form button:hover:not(:disabled) {
+    filter: brightness(1.08);
+}
+
+.gemini-chat-form button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* botão "parar": contornado, para não parecer o de enviar */
+.gemini-chat-form .gemini-stop {
+    border: 1px solid color-mix(in srgb, var(--danger) 55%, transparent);
+    background: color-mix(in srgb, var(--danger) 10%, var(--background));
+    color: var(--danger);
+}
+
+.gemini-chat-disclaimer {
+    margin: 0;
+    padding: 0 1rem 0.875rem;
+    color: color-mix(in srgb, var(--muted) 85%, transparent);
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.gemini-chat-disclaimer code {
+    font-family: var(--mono);
+}
+
+/* ---------- Foco visível (teclado) ---------- */
+.gemini-chat-icon-btn:focus-visible,
+.gemini-chat-form button:focus-visible,
+.gemini-suggestions button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ---------- Telas pequenas ---------- */
+@media (max-width: 479px) {
+    .gemini-bubble {
+        max-width: 95%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gemini-chat-status .dot.typing,
+    .gemini-typing span {
+        animation: none;
+    }
+
+    .gemini-chat-icon-btn,
+    .gemini-suggestions button,
+    .gemini-chat-form button,
+    .gemini-chat-form textarea {
+        transition: none;
+    }
+}
