@@ -5,7 +5,7 @@
 // pela Vercel Function api/gemini.js e pelo vite.config.js no npm run dev.
 // O que a IA sabe sobre você fica em api/_perfil.js.
 const GEMINI_CONFIG = {
-    API_PATH: "../api/gemini",
+    API_PATH: "api/gemini",
 
     // Nome que aparece no cabeçalho do chat e nas respostas
     ASSISTANT_NAME: "Rafael Torres",

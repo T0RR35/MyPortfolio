@@ -1,7 +1,7 @@
 {
     "$schema": "https://openapi.vercel.sh/vercel.json",
     "functions": {
-        "src/api/gemini.js": {
+        "api/gemini.js": {
             "maxDuration": 60
         }
     }
