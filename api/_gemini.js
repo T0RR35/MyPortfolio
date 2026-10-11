@@ -19,7 +19,7 @@
 //
 // O nome do arquivo começa com "_" para a Vercel NÃO transformá-lo em rota.
 
-import { PERFIL } from "./_profile"
+import { PERFIL } from "./_profile.js"
 
 export const GEMINI_PATH = "/api/gemini";
 
