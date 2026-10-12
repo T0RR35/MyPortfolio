@@ -1,16 +1,16 @@
 /* ---------- Tokens de cor (claro / escuro) ---------- */
 :root {
-    --background: #ffffff;
-    --foreground: #0f1419;
-    --muted: #536471;
-    --border: #e5e7eb;
-    --secondary: #f3f4f6;
-    --primary: #10b981;
-    --card: #f9fafb;
+    --background: #ffeecd; 
+    --foreground: #161b20; 
+    --muted: #4a5560;      
+    --border: #d3d7dc;      
+    --secondary: #e0e3e7;  
+    --card: #f3f4f6;         
+    --primary: #059669;      
 
     --sidebar-width: 228px;
     --sidebar-width-compact: 88px;
-    --content-max: 1280px;
+    --page-max: 1200px; 
 }
 
 :root.dark {
@@ -40,9 +40,7 @@ body {
 /* ---------- Layout ---------- */
 .layout {
     display: flex;
-    max-width: var(--content-max);
     min-height: 100vh;
-    margin: 0 auto;
 }
 
 /* ---------- Sidebar (desktop) ---------- */
@@ -64,6 +62,12 @@ body {
     min-height: 100vh;
     border-left: 1px solid var(--border);
     border-right: 1px solid var(--border);
+}
+
+.main-content {
+    width: 100%;
+    max-width: var(--page-max);
+    margin-inline: auto;
 }
 
 /* ---------- Tablet: sidebar compacta (só ícones) ---------- */

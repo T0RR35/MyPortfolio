@@ -2,7 +2,7 @@
 .profile-sections {
     --accent: var(--primary, #22c55e);
     --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    --card-border: color-mix(in srgb, var(--foreground) 20%, transparent);
+    --card-border: color-mix(in srgb, var(--foreground) 50%, transparent);
     --card-bg: color-mix(in srgb, var(--foreground) 4%, var(--background));
     --accent-border: color-mix(in srgb, var(--accent) 45%, transparent);
 

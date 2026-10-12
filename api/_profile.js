@@ -2,6 +2,7 @@
 // Dados puros do portfólio para a função /api/gemini.
 // O "_" no começo do nome impede a Vercel de tratar este arquivo como uma função.
 // Sem React, sem hooks, sem alias "@/" e sem ícones.
+// Estou duplicando os dados da pasta src/data, mas não consigo usar os já prontos porque hooks só funcionam dentro de componentes React, e na Vercel não existe React rodando
 
 /* ───────────────────────── LINKS ───────────────────────── */
 

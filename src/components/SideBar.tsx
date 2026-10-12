@@ -5,9 +5,31 @@ import "./SideBar.css";
 import { switchLanguage, useLanguage } from "@/utils/languageSwitcher"
 import { useLinks } from "@/data/navLinks";
 
+const TEXT = {
+    en: {
+        visitor: "Visitor",
+        lightMode: "Light mode",
+        darkMode: "Dark mode",
+        toLight: "Switch to light theme",
+        toDark: "Switch to dark theme",
+        viewProfile: "View profile",
+        mainNav: "Main",
+    },
+    pt: {
+        visitor: "Visitante",
+        lightMode: "Modo claro",
+        darkMode: "Modo escuro",
+        toLight: "Mudar para tema claro",
+        toDark: "Mudar para tema escuro",
+        viewProfile: "Ver perfil",
+        mainNav: "Principal",
+    },
+};
+
 export default function Sidebar() {
     const links = useLinks();
     const language = useLanguage()
+    const t = TEXT[language as "en" | "pt"] ?? TEXT.en;
     const [dark, setDark] = useState(
         () => localStorage.getItem("theme") !== "light"
     );
@@ -57,11 +79,10 @@ export default function Sidebar() {
             </nav>
 
             <div className="sidebar-footer">
-                <NavLink to="/profile" className="profile-card" aria-label="Ver perfil">
+                <NavLink to="/profile" className="profile-card" aria-label={t.viewProfile}>
                     <img className="profile-card__avatar" src="/visitante.jpg" alt="" />
                     <div className="profile-card__info">
-                        <strong>Visitante</strong>
-                        {/*<span>modestorresrafael@gmail.com</span>*/}
+                        <strong>{t.visitor}</strong>
                     </div>
                 </NavLink>
 
@@ -69,10 +90,10 @@ export default function Sidebar() {
                     type="button"
                     className="theme-btn"
                     onClick={() => setDark((d) => !d)}
-                    aria-label={dark ? "Mudar para tema claro" : "Mudar para tema escuro"}
+                    aria-label={dark ? t.toLight : t.toDark}
                 >
                     {dark ? <Sun size={18} /> : <Moon size={18} />}
-                    <span className="theme-btn__label">{dark ? "Light mode" : "Dark mode"}</span>
+                    <span className="theme-btn__label">{dark ? t.lightMode : t.darkMode}</span>
                 </button>
             </div>
         </div>

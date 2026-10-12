@@ -1,7 +1,7 @@
 .contact {
     --accent: var(--primary, #22c55e);
     --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    --line: color-mix(in srgb, var(--foreground) 12%, transparent);
+    --line: color-mix(in srgb, var(--foreground) 50%, transparent);
     --card-bg: color-mix(in srgb, var(--foreground) 4%, var(--background));
 
     padding: 2rem;

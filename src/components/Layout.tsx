@@ -20,6 +20,7 @@ export default function Layout() {
                     onExitComplete={() => window.scrollTo(0, 0)}
                 >
                     <motion.div
+                        className="main-content"
                         key={location.pathname}
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
