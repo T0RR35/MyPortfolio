@@ -6,6 +6,9 @@ const english_projects: ProjectData = {
     title: "Projects",
     subtitle:
         "A collection of projects showcasing my technical skills, creative problem-solving, and growth as a software engineer.",
+    role_title: "Role",
+    period_title: "Period",
+    source_title: "Source",
     items: [{
             name: "This Portfolio!",
             status: "On constant update",
@@ -50,7 +53,10 @@ const portuguese_projects: ProjectData = {
     title: "Projetos",
     subtitle:
         "Uma coleção de projetos que demonstram minhas habilidades técnicas, criatividade na resolução de problemas e evolução como engenheiro de software.",
-    items: [{
+    role_title: "Papel",
+    period_title: "Período",
+    source_title: "Fonte",
+        items: [{
             name: "Esse Portfólio!",
             status: "Em constante atualização",
             description: "Meu portfólio pessoal de engenharia, construído como um app React + TypeScript orientado a dados: cada seção é renderizada a partir de arquivos de conteúdo tipados, com um sistema de componentes reutilizáveis, transições de rota animadas e suporte a dois idiomas.",

@@ -18,6 +18,7 @@ const profile = {
     subtitle: "Engenheiro de Software Backend",
     location: "Belo Horizonte, MG, Brasil",
     age: 19,
+    birthday: "10 de junho",
     stats: [
         { value: "4+", label: "Anos programando" },
         { value: "1+", label: "Ano de experiência profissional" },
@@ -63,9 +64,8 @@ const profile = {
     certifications: {
         title: "Certificações",
         items: [
-            { title: "AWS Certified Solutions Architect — Associate", issuer: "Amazon", year: 2025 },
-            { title: "CKA: Certified Kubernetes Administrator", issuer: "CNCF", year: 2024 },
-            { title: "MongoDB Associate Developer", issuer: "MongoDB University", year: 2023 },
+            { title: "Implementando Banco de Dados", issuer: "Bradesco", year: 2024 },
+            { title: "Modelagem de Dados", issuer: "CNCF", year: 2024 },
         ],
     },
     languages: {

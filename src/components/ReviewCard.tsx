@@ -1,5 +1,7 @@
 import { Quote } from "lucide-react";
 import type { ReviewEntry } from "@/types/ReviewData";
+import { useLanguage } from "@/utils/languageSwitcher";
+import { formatDate } from "@/utils/formatDate"
 import "./ReviewCard.css";
 
 interface ReviewCardProps {
@@ -16,8 +18,9 @@ function getInitials(name: string): string {
 }
 
 export default function ReviewCard({ review }: ReviewCardProps) {
+    const language = useLanguage();
     const { author, role, relationship, organization, date, quote } = review;
-    const meta = [relationship, organization, date].filter(Boolean).join(" · ");
+    const meta = [relationship, organization, formatDate(date, language)].filter(Boolean).join(" · ");
 
     return (
         <figure className="review-card">

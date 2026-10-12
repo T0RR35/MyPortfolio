@@ -17,9 +17,10 @@ export interface Project {
 
 interface ProjectCardProps {
     project: Project;
+    titles: [string, string, string]
 }
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function ProjectCard({ project, titles }: ProjectCardProps) {
     const { name, status, description, image_path, gif_path, role, period, stack = [], repo, demo } = project;
 
     const [gifSrc, setGifSrc] = useState<string | null>(null);
@@ -110,11 +111,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
                 <dl className="project-card__meta">
                     <div>
-                        <dt>role</dt>
+                        <dt>{titles[0]}</dt>
                         <dd>{role}</dd>
                     </div>
                     <div>
-                        <dt>period</dt>
+                        <dt>{titles[1]}</dt>
                         <dd>
                             <Calendar size={12} aria-hidden="true" />
                             {period}
@@ -139,7 +140,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                             rel="noopener noreferrer"
                         >
                             <Bot size={14} aria-hidden="true" />
-                            Source
+                            {titles[2]}
                         </a>
                     )}
 

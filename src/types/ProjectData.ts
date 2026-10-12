@@ -15,5 +15,8 @@ export interface ProjectData {
     eyebrow: string;
     title: string;
     subtitle: string;
+    role_title: string,
+    period_title: string,
+    source_title: string,
     items: ProjectEntry[];
 }

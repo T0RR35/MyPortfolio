@@ -3,7 +3,7 @@ import { useProjects } from "@/data/projects";
 import "./Projects.css";
 
 export default function Projects() {
-    const { eyebrow, title, subtitle, items } = useProjects();
+    const { eyebrow, title, subtitle, role_title, period_title, source_title, items } = useProjects();
 
     return (
         <>
@@ -20,7 +20,7 @@ export default function Projects() {
             <section className="projects" aria-labelledby="projects-title">
                 <div className="projects__grid">
                     {items.map((project) => (
-                        <ProjectCard key={project.name} project={project} />
+                        <ProjectCard key={project.name} project={project} titles={[role_title, period_title, source_title]} />
                     ))}
                 </div>
             </section>

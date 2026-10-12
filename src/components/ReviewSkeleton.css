@@ -1,0 +1,111 @@
+.review-skeleton {
+    --line: color-mix(in srgb, var(--foreground) 12%, transparent);
+    --block: color-mix(in srgb, var(--foreground) 9%, transparent);
+    --shine: color-mix(in srgb, var(--foreground) 16%, transparent);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--foreground) 4%, var(--background));
+}
+
+/* bloco cinza com um brilho que passa da esquerda para a direita */
+.review-skeleton__block {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 0.375rem;
+    background: var(--block);
+}
+
+.review-skeleton__block::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, var(--shine), transparent);
+    transform: translateX(-100%);
+    animation: review-skeleton-shimmer 1.4s infinite;
+}
+
+@keyframes review-skeleton-shimmer {
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/* ---------- Ícone de aspas ---------- */
+.review-skeleton__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+/* ---------- Linhas do texto ---------- */
+.review-skeleton__lines {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.review-skeleton__lines .review-skeleton__block {
+    height: 0.875rem;
+}
+
+.review-skeleton__lines .review-skeleton__block:nth-child(2) {
+    width: 94%;
+}
+
+.review-skeleton__lines .review-skeleton__block:nth-child(3) {
+    width: 88%;
+}
+
+.review-skeleton__lines .review-skeleton__block:nth-child(4) {
+    width: 62%;
+}
+
+/* ---------- Autor ---------- */
+.review-skeleton__author {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    margin-top: auto;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+}
+
+.review-skeleton__avatar {
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.875rem;
+}
+
+.review-skeleton__info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.4375rem;
+}
+
+.review-skeleton__info .review-skeleton__block {
+    height: 0.75rem;
+    width: 45%;
+}
+
+.review-skeleton__info .review-skeleton__block:nth-child(2) {
+    width: 60%;
+}
+
+.review-skeleton__info .review-skeleton__block:nth-child(3) {
+    width: 75%;
+    height: 0.625rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .review-skeleton__block::after {
+        animation: none;
+        display: none;
+    }
+}

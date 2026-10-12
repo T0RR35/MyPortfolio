@@ -72,9 +72,8 @@ const english_profile : ProfileEntity = {
     certifications: {
         title: "Certifications",
         items: [
-            { title: "AWS Certified Solutions Architect — Associate", issuer: "Amazon", year: 2025 },
-            { title: "CKA: Certified Kubernetes Administrator", issuer: "CNCF", year: 2024 },
-            { title: "MongoDB Associate Developer", issuer: "MongoDB University", year: 2023 },
+            { title: "Implementing Databases", issuer: "Bradesco", year: 2024 },
+            { title: "Data Modeling", issuer: "Bradesco", year: 2024 },
         ],
     },
     languages: {
@@ -134,9 +133,8 @@ const portuguese_profile : ProfileEntity = {
     certifications: {
         title: "Certificações",
         items: [
-            { title: "AWS Certified Solutions Architect — Associate", issuer: "Amazon", year: 2025 },
-            { title: "CKA: Certified Kubernetes Administrator", issuer: "CNCF", year: 2024 },
-            { title: "MongoDB Associate Developer", issuer: "MongoDB University", year: 2023 },
+            { title: "Implementando Banco de Dados", issuer: "Bradesco", year: 2024 },
+            { title: "Modelagem de Dados", issuer: "CNCF", year: 2024 },
         ],
     },
     languages: {
