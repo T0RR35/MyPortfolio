@@ -13,7 +13,7 @@
 ![Gemini](https://img.shields.io/badge/Gemini_API-007ec6?style=for-the-badge&logo=googlegemini&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-007ec6?style=for-the-badge&logo=vercel&logoColor=white)
 
-🚧 **Status:** Under development.
+🚧 **Status:** Under constant development.
 
 ---
 
@@ -40,7 +40,7 @@
 
 ## 🔗 Useful Links
 
-- 🌐 **Live Demo:** [Coming soon](#)
+- 🌐 **Live Demo:** [See it live](https://my-portfolio-alpha-one-l05ufsvlnv.vercel.app/)
 - 📦 **Repository:** [GitHub Repository](https://github.com/T0RR35/MyPortfolio)
 - 💼 **LinkedIn:** [My LinkedIn Profile](https://linkedin.com/in/rafaeltorresmodesto/)
 
@@ -330,31 +330,35 @@ The site is deployed on [Vercel](https://vercel.com/):
 
 Screenshots of the application will be added here as development progresses.
 
-<!--
-| Home | Profile |
+
+| Agent | Profile |
 | :---: | :---: |
-| ![Home page](docs/images/home.png) | ![Profile page](docs/images/profile.png) |
+| ![Agent chat](public/prints/chat.png) | ![Profile page](public/prints/profile.png) |
 
 | Projects | Experience |
 | :---: | :---: |
-| ![Projects page](docs/images/projects.png) | ![Experience page](docs/images/experience.png) |
+| ![Projects page](public/prints/projects.png) | ![Experience page](public/prints/experience.png) |
 
 | Reviews | Contact |
 | :---: | :---: |
-| ![Reviews page](docs/images/reviews.png) | ![Contact page](docs/images/contact.png) |
--->
+| ![Reviews page](public/prints/reviews.png) | ![Contact page](public/prints/contact.png) |
+
 
 ---
 
 ## 📌 Roadmap
 
-- [ ] Build the Home feed with posts and updates.
-- [ ] Publish the live demo link and add screenshots to this README.
-- [ ] Use a single source of truth for the portfolio data, so the AI context no longer duplicates `src/data`.
-- [ ] Add rate limiting to the AI endpoint.
-- [ ] Add automated tests for the data hooks and critical components.
-- [ ] Improve SEO with page titles, meta descriptions, and Open Graph tags.
-- [ ] Add more projects and blog-style posts as they are completed.
+- [ ] Redesign the Experience page to make it less cluttered.
+- [ ] Implement notification pop-ups.
+- [ ] Add LinkedIn and GitHub authentication to allow users to leave testimonials.
+- [ ] Add an accessibility button.
+- [ ] Make each project clickable and open its own dedicated page.
+- [ ] Create a banner for each project, indicating its category (academic, professional, etc.).
+- [ ] Integrate WakaTime and GitHub stats into the profile.
+- [ ] Improve the layout and responsiveness for mobile devices.
+- [ ] Adjust the background image to match the light theme.
+- [ ] Clean up the browser console (F12) by resolving warnings and errors.
+- [ ] Standardize page headers across all pages.
 
 ---
 
