@@ -1,19 +1,23 @@
 import { useEffect, useId, useRef, useState } from "react";
-import { SiGooglegemini } from "react-icons/si";
+import { Sparkles } from "lucide-react";
 import GeminiChat from "./GeminiChat";
 import "./ChatPanel.css";
 
 const STORAGE_KEY = "chat-open";
+const SEEN_KEY = "chat-launcher-seen";
+
+// O brilho chamativo do botão só aparece até o visitante clicar nele a primeira vez
+function getInitialSeen(): boolean {
+    try {
+        return localStorage.getItem(SEEN_KEY) === "true";
+    } catch {
+        return false;
+    }
+}
 
 // Abre sozinho só em telas largas (onde cabe ao lado do conteúdo)
 function getInitialOpen(): boolean {
-    try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved !== null) return saved === "true";
-    } catch {
-        /* localStorage bloqueado */
-    }
-    return window.innerWidth >= 1440;
+    return false;
 }
 
 /**
@@ -23,9 +27,13 @@ function getInitialOpen(): boolean {
 export default function ChatPanel() {
     const panelId = useId();
     const [open, setOpen] = useState(getInitialOpen);
+    const [seen, setSeen] = useState(getInitialSeen);
     const panelRef = useRef<HTMLDivElement>(null);
     const launcherRef = useRef<HTMLButtonElement>(null);
-    const firstRender = useRef(true);
+    // Para onde levar o foco depois da próxima abertura/minimização.
+    // Só é preenchido por um clique do usuário, então ao carregar a página
+    // (inclusive no StrictMode, que roda os effects duas vezes) nada ganha foco.
+    const focusTarget = useRef<"panel" | "launcher" | null>(null);
 
     useEffect(() => {
         try {
@@ -33,15 +41,34 @@ export default function ChatPanel() {
         } catch {
             /* ignora */
         }
-
-        // acessibilidade: leva o foco para onde o usuário clicou, sem mexer no carregamento
-        if (firstRender.current) {
-            firstRender.current = false;
-            return;
-        }
-        if (open) panelRef.current?.querySelector("textarea")?.focus();
-        else launcherRef.current?.focus();
     }, [open]);
+
+    useEffect(() => {
+        if (focusTarget.current === "panel") {
+            panelRef.current?.querySelector("textarea")?.focus();
+        } else if (focusTarget.current === "launcher") {
+            launcherRef.current?.focus();
+        }
+        focusTarget.current = null;
+    }, [open]);
+
+    const handleMinimize = () => {
+        focusTarget.current = "launcher";
+        setOpen(false);
+    };
+
+    const handleLaunch = () => {
+        focusTarget.current = "panel";
+        setOpen(true);
+        if (!seen) {
+            setSeen(true);
+            try {
+                localStorage.setItem(SEEN_KEY, "true");
+            } catch {
+                /* ignora */
+            }
+        }
+    };
 
     return (
         <aside className={`chat ${open ? "chat--open" : "chat--minimized"}`} aria-label="Chat">
@@ -49,19 +76,19 @@ export default function ChatPanel() {
                 <button
                     ref={launcherRef}
                     type="button"
-                    className="chat__launcher"
-                    onClick={() => setOpen(true)}
+                    className={`chat__launcher${seen ? "" : " chat__launcher--attention"}`}
+                    onClick={handleLaunch}
                     aria-expanded={false}
                     aria-controls={panelId}
                     aria-label="Abrir chat"
                     title="Abrir chat"
                 >
-                    <SiGooglegemini size={20} aria-hidden="true" />
+                    <Sparkles size={22} aria-hidden="true" />
                 </button>
             )}
 
             <div id={panelId} ref={panelRef} className="chat__panel" hidden={!open}>
-                <GeminiChat onMinimize={() => setOpen(false)} />
+                <GeminiChat onMinimize={handleMinimize} />
             </div>
         </aside>
     );

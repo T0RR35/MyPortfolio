@@ -3,9 +3,9 @@
 
 .chat {
     --accent: var(--primary, #22c55e);
-    --line: color-mix(in srgb, var(--foreground) 50%, transparent);
-    --chat-width: 18rem;          /* era 22rem */
-    --chat-width-min: 3.5rem;
+    --line: color-mix(in srgb, var(--foreground) 12%, transparent);
+    --chat-width: 19rem;          /* era 22rem */
+    --chat-width-min: 4.5rem;   /* folga para o anel que pulsa não passar da borda da tela */
 
     /* desktop: painel "colado" à direita, ocupando a altura da tela */
     position: sticky;
@@ -36,27 +36,89 @@
 
 /* ---------- Botão de abrir (painel minimizado) ---------- */
 .chat__launcher {
+    /* Para usar o azul-violeta da referência, troque por: --launcher-color: #7c8cff; */
+    --launcher-color: var(--accent);
+
+    position: relative;
     display: grid;
     place-items: center;
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 3rem;
+    height: 3rem;
     margin: 1.25rem auto 0;
-    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-    border-radius: 0.875rem;
-    background: color-mix(in srgb, var(--accent) 12%, var(--background));
-    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--launcher-color) 35%, transparent);
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--launcher-color) 12%, var(--background));
+    color: var(--launcher-color);
     cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
 }
 
 .chat__launcher:hover {
-    background: color-mix(in srgb, var(--accent) 20%, var(--background));
+    background: color-mix(in srgb, var(--launcher-color) 20%, var(--background));
     transform: translateY(-2px);
 }
 
+.chat__launcher:hover svg {
+    animation: chat-twinkle 0.7s ease;
+}
+
+@keyframes chat-twinkle {
+    0%, 100% { transform: rotate(0) scale(1); }
+    40% { transform: rotate(-14deg) scale(1.2); }
+    70% { transform: rotate(8deg) scale(1.1); }
+}
+
 .chat__launcher:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
+    outline: 2px solid var(--launcher-color);
+    outline-offset: 3px;
+}
+
+/* ---------- Chamando atenção (só até o primeiro clique) ---------- */
+.chat__launcher--attention {
+    border-color: color-mix(in srgb, var(--launcher-color) 65%, transparent);
+    background: linear-gradient(
+        145deg,
+        color-mix(in srgb, var(--launcher-color) 28%, var(--background)),
+        color-mix(in srgb, var(--launcher-color) 8%, var(--background))
+    );
+    box-shadow:
+        0 0 18px color-mix(in srgb, var(--launcher-color) 35%, transparent),
+        inset 0 1px 0 color-mix(in srgb, var(--launcher-color) 30%, transparent);
+}
+
+.chat__launcher--attention:hover {
+    transform: translateY(-2px) scale(1.06);
+    box-shadow:
+        0 0 28px color-mix(in srgb, var(--launcher-color) 55%, transparent),
+        inset 0 1px 0 color-mix(in srgb, var(--launcher-color) 40%, transparent);
+}
+
+/* anel que se expande e some */
+.chat__launcher--attention::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border: 2px solid var(--launcher-color);
+    border-radius: inherit;
+    opacity: 0;
+    pointer-events: none;
+    animation: chat-ring 2.8s ease-out infinite;
+}
+
+.chat__launcher--attention:hover::after {
+    animation-play-state: paused;
+}
+
+@keyframes chat-ring {
+    0% {
+        opacity: 0.55;
+        transform: scale(1);
+    }
+    70%,
+    100% {
+        opacity: 0;
+        transform: scale(1.3);
+    }
 }
 
 /* ==========================================================================
@@ -82,19 +144,24 @@
         border: 0;
         box-shadow: none;
         background: transparent;
-        pointer-events: none;     
+        pointer-events: none;     /* a camada minimizada não pode interceptar cliques */
     }
 
     .chat__launcher {
-        pointer-events: auto;    
+        pointer-events: auto;     /* só o botão redondo recebe clique */
         position: fixed;
         right: 1rem;
         bottom: 1rem;
         width: 3.25rem;
         height: 3.25rem;
         margin: 0;
-        border-radius: 50%;
         box-shadow: 0 8px 24px rgb(0 0 0 / 0.35);
+    }
+
+    .chat__launcher--attention {
+        box-shadow:
+            0 8px 24px rgb(0 0 0 / 0.35),
+            0 0 22px color-mix(in srgb, var(--launcher-color) 40%, transparent);
     }
 }
 
@@ -116,5 +183,10 @@
     .chat,
     .chat__launcher {
         transition: none;
+    }
+
+    .chat__launcher--attention::after,
+    .chat__launcher:hover svg {
+        animation: none;
     }
 }

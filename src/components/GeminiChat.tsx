@@ -4,10 +4,6 @@ import { SiGooglegemini } from "react-icons/si";
 import GEMINI_CONFIG from "@/config/geminiConfig";
 import { askGemini } from "@/services/geminiService";
 import MarkdownText from "./MarkdownText";
-import { useProfile } from "@/data/profile";
-import { useExperience } from "@/data/experiences";
-import { useProjects } from "@/data/projects";
-import { useContact } from "@/data/contact";
 import "./GeminiChat.css";
 
 /**
