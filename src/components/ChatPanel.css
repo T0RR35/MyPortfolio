@@ -4,7 +4,7 @@
 .chat {
     --accent: var(--primary, #22c55e);
     --line: color-mix(in srgb, var(--foreground) 50%, transparent);
-    --chat-width: 19rem;          /* era 22rem */
+    --chat-width: 18rem;          /* era 22rem */
     --chat-width-min: 3.5rem;
 
     /* desktop: painel "colado" à direita, ocupando a altura da tela */

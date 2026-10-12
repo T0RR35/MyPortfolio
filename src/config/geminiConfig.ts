@@ -18,8 +18,8 @@ const GEMINI_CONFIG = {
     SUGGESTIONS: [
         "Quais tecnologias você domina?",
         "Me conte sobre seus projetos",
-        "Onde você estuda?",
-        "Como entro em contato?",
+        "Quantos anos você tem?",
+        "Me conte uma curiosidade sobre você",
     ],
 
     // Tamanho máximo da pergunta (o servidor também confere)

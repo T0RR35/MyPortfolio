@@ -14,72 +14,10 @@ const profileLinks = [
 ];
 
 /* ───────────────────────── PERFIL ───────────────────────── */
-
-const english_profile = {
-    subtitle: "Backend Software Engineer",
-    location: "Belo Horizonte, MG, Brazil",
-    stats: [
-        { value: "4+", label: "Years coding" },
-        { value: "1+", label: "Year professional experience" },
-        { value: "5", label: "Projects shipped" },
-        { value: "4", label: "Systems in prod" },
-    ],
-    about: {
-        title: "About",
-        text: "I'm a Software Engineering student focused on backend development and software architecture. I enjoy building practical solutions, working with APIs and databases, and continuously learning new technologies and better ways to build software.",
-    },
-    techs: {
-        title: "Technical DNA — Skill matrix",
-        labels: {
-            languages: "Languages",
-            frameworks: "Frameworks",
-            databases: "Databases",
-            tools: "Tools & Cloud",
-            concepts: "Concepts",
-        },
-        languages: ["TypeScript", "Python", "Java", "Javascript", "C++", "C"],
-        frameworks: ["Django", "Spring Boot", "React"],
-        databases: ["PostgreSQL", "MongoDB", "MySQL"],
-        tools: ["Docker"],
-        concepts: ["API", "ORM", "Blockchain"],
-    },
-    education: {
-        title: "Education",
-        items: [
-            {
-                title: "Software Engineering",
-                organization: "Pontifical Catholic University of Minas Gerais (PUC Minas)",
-                period: "2026 — 2029 (expected)",
-                description: "Software development, engineering practices, and system design.",
-            },
-            {
-                title: "Information Technology Technical Degree",
-                organization: "Federal Center for Technological Education of Minas Gerais (CEFET-MG)",
-                period: "2023 — 2025",
-                description: "Programming, databases, web development, and software engineering.",
-            },
-        ],
-    },
-    certifications: {
-        title: "Certifications",
-        items: [
-            { title: "AWS Certified Solutions Architect — Associate", issuer: "Amazon", year: 2025 },
-            { title: "CKA: Certified Kubernetes Administrator", issuer: "CNCF", year: 2024 },
-            { title: "MongoDB Associate Developer", issuer: "MongoDB University", year: 2023 },
-        ],
-    },
-    languages: {
-        title: "Languages",
-        items: [
-            { name: "Portuguese", level: "Native" },
-            { name: "English", level: "Professional (C1)" },
-        ],
-    },
-};
-
-const portuguese_profile = {
+const profile = {
     subtitle: "Engenheiro de Software Backend",
     location: "Belo Horizonte, MG, Brasil",
+    age: 19,
     stats: [
         { value: "4+", label: "Anos programando" },
         { value: "1+", label: "Ano de experiência profissional" },
@@ -140,71 +78,7 @@ const portuguese_profile = {
 };
 
 /* ───────────────────────── EXPERIÊNCIA ───────────────────────── */
-
-const english_experience = {
-    eyebrow: "Career pathing",
-    title: "Professional Experience",
-    subtitle:
-        "A chronological thread through my professionals experiences — expand each entry for responsibilities and impact.",
-    labels: {
-        responsibilities: "Responsibilities",
-        achievements: "Key achievements",
-        toggle: "Show details",
-    },
-    items: [
-        {
-            role: "Blockchain & Web3 Developer Intern",
-            tag: "Internship · Hybrid",
-            company: "Minas Gerais Information Technology Company (PRODEMGE)",
-            location: "Belo Horizonte, MG, Brazil",
-            period: "Oct 2026 — present",
-            description:
-                "Building blockchain and Web3 solutions: smart contracts on Hyperledger Besu and decentralized interfaces in React and TypeScript, while contributing to the technical architecture of on-chain and off-chain data.",
-            responsibilities: [
-                "Develop, test, and deploy smart contracts in Solidity on Hyperledger Besu.",
-                "Design and build dApps with Web3 integration (REST, RPC, and WebSocket), focused on usability, security, and performance.",
-                "Build decentralized interfaces with React and TypeScript.",
-                "Interact with blockchain network APIs using Web3.js, Ethers.js, and Hyperledger SDKs.",
-                "Take part in defining the technical architecture, including on-chain and off-chain data.",
-            ],
-            achievements: [
-                "Smart contracts covered by automated tests before every deployment.",
-                "Front-end integrated end to end with the blockchain network.",
-            ],
-            stack: ["Solidity", "Hyperledger Besu", "Web3.js", "Ethers.js", "React", "TypeScript"],
-            logo: "./prodemge.png",
-        },
-        {
-            role: "Fullstack Software Engineering Intern",
-            tag: "Internship · On-site",
-            company: "Belo Horizonte City Council (CMBH)",
-            location: "Belo Horizonte, MG, Brazil",
-            period: "Mar 2026 — Aug 2026",
-            description:
-                "Worked on a corporate web system for managing demands, goals, and indicators of the IT department, replacing manual processes with a centralized, automated solution. Took part from application modeling to the implementation of features, APIs, and business rules, delivering a solution validated by end users.",
-            responsibilities: [
-                "Built a web application with Python, Django, PostgreSQL, and Docker.",
-                "Modeled the relational database and used Django's ORM for data access and persistence.",
-                "Developed and consumed REST APIs.",
-                "Implemented business rules, validations, and backend logic.",
-                "Created features for managing demands, goals, and indicators, including modules for automated reports, metric calculations, and demand prioritization.",
-                "Used Git for version control and collaborative, agile development practices.",
-                "Validated the solution with IT department users, incorporating their feedback during development.",
-            ],
-            achievements: [
-                "Automated processes that were previously done manually.",
-                "Reduced rework through automatic report generation, calculations, and demand organization.",
-                "Centralized information in a single system, increasing data reliability.",
-                "Faster indicator tracking and decision-making.",
-                "Delivered a solution validated and approved by the IT department supervisor.",
-            ],
-            stack: ["Python", "Django", "PostgreSQL", "Docker", "JavaScript", "REST APIs", "Git"],
-            logo: "./cmbh.png",
-        },
-    ],
-};
-
-const portuguese_experience = {
+const experience = {
     eyebrow: "Trajetória",
     title: "Experiência Profissional",
     subtitle:
@@ -269,55 +143,7 @@ const portuguese_experience = {
 
 /* ───────────────────────── PROJETOS ───────────────────────── */
 
-const english_projects = {
-    eyebrow: "Build log",
-    title: "Projects",
-    subtitle:
-        "A collection of projects showcasing my technical skills, creative problem-solving, and growth as a software engineer.",
-    items: [
-        {
-            name: "This Portfolio!",
-            status: "On constant update",
-            description:
-                "My personal engineering portfolio, built as a data-driven React + TypeScript app: every section renders from typed content files, with a reusable component system, animated route transitions, and a bilingual setup.",
-            image_path: "./construction-stripe.png",
-            gif_path: "./construction-stripe.png",
-            role: "Creator & maintainer",
-            period: "2026 — today",
-            stack: ["React", "TypeScript"],
-            repo: "https://github.com/T0RR35/MyPortfolio",
-            demo: "",
-        },
-        {
-            name: "Desert Strike Remake",
-            status: "Completed",
-            description:
-                "Remade the classic Desert Strike from scratch... but online! Helicopter combat, explosions, and 90s nostalgia in pixel art using LibGDX library.",
-            image_path: "./desert-strike-img.png",
-            gif_path: "./desert-strike-gif.gif",
-            role: "Creator & maintainer",
-            period: "2025",
-            stack: ["Java", "LibGDX", "Distributed Systems"],
-            repo: "https://github.com/T0RR35/Desert-Strike-Remake",
-            demo: "",
-        },
-        {
-            name: "King Kong Remake",
-            status: "Completed",
-            description:
-                "Remade the classic King Kong from Atari — climb the building, dodge the obstacles thrown by Kong, and rescue the damsel, all rebuilt from scratch in SFML library.",
-            image_path: "./king-kong-img.png",
-            gif_path: "./king-kong-gif.gif",
-            role: "Creator & maintainer",
-            period: "2024",
-            stack: ["C++"],
-            repo: "https://github.com/T0RR35/King-Kong-Game",
-            demo: "",
-        },
-    ],
-};
-
-const portuguese_projects = {
+const projects = {
     eyebrow: "Build log",
     title: "Projetos",
     subtitle:
@@ -365,74 +191,39 @@ const portuguese_projects = {
     ],
 };
 
-/* ───────────────────────── CONTATO ───────────────────────── */
-
-const english_contact = {
-    eyebrow: "Get in touch",
-    title: "Contact",
-    subtitle:
-        "Recruiters and teams welcome — use the form or reach out directly through any channel below.",
-    form: {
-        name: { label: "Name", placeholder: "Name" },
-        email: { label: "Email", placeholder: "Email" },
-        subject: { label: "Subject", placeholder: "Subject" },
-        message: { label: "Message", placeholder: "Tell me about the role or opportunity..." },
-        submit: "Send message",
-        sending: "Sending...",
-        success: "Message sent! I'll get back to you soon.",
-        error: "Could not send your message. Write directly to",
-    },
-};
-
-const portuguese_contact = {
-    eyebrow: "Fale comigo",
-    title: "Contato",
-    subtitle:
-        "Recrutadores e times são bem-vindos — use o formulário ou fale direto por qualquer um dos canais ao lado.",
-    form: {
-        name: { label: "Nome", placeholder: "Nome" },
-        email: { label: "E-mail", placeholder: "E-mail" },
-        subject: { label: "Assunto", placeholder: "Assunto" },
-        message: { label: "Mensagem", placeholder: "Conte-me sobre a vaga ou oportunidade..." },
-        submit: "Enviar mensagem",
-        sending: "Enviando...",
-        success: "Mensagem enviada! Responderei em breve.",
-        error: "Não foi possível enviar sua mensagem. Escreva direto para",
-    },
-};
+/* ───────────────────────── CURIOSIDADES ───────────────────────── */
+const curiosities = 
+    [
+        "Meu cantor favorito é Djavan, astro da MPB", 
+        "Minhas bandas favoritas são Metallica e Megadeth",
+        "Os únicos animes que já vi são: One Piece (acompanho até hoje) e Naruto",
+        "Eu toco guitarra e violão",
+        "Sou torcedor do Clube Atlético Mineiro",
+        "Já trabalhei como professor particular de matemática",
+        "Já fui premiado em 3 olimpíadas de matemática e uma de física durante minha vida",
+        "Pratico inglês desde os 8 anos de idade, quando entrei em um curso particular",
+        "Se eu não entrasse na área de TI eu provavelmente entraria em matemática ou física",
+    ]
 
 /* ───────────────────────── EXPORTS ───────────────────────── */
-
-export const profile = { en: english_profile, pt: portuguese_profile };
-export const experience = { en: english_experience, pt: portuguese_experience };
-export const projects = { en: english_projects, pt: portuguese_projects };
-export const contact = { en: english_contact, pt: portuguese_contact };
 export { profileLinks };
 
 // Campos que só servem à interface e gastam tokens à toa
-const UI_ONLY = new Set(["logo", "image_path", "gif_path", "form", "eyebrow", "labels", "toggle"]);
+const UI_ONLY = new Set(["logo", "image_path", "gif_path", "eyebrow", "labels", "toggle"]);
 const clean = (data) => JSON.stringify(data, (k, v) => (UI_ONLY.has(k) ? undefined : v), 2);
 
-/**
- * Monta o texto de contexto que vai para o Gemini.
- * @param {"pt" | "en"} lang
- */
-export function getPerfil(lang = "pt") {
-    const l = lang === "en" ? "en" : "pt";
-    const links = profileLinks.map((x) => `${x.label}: ${x.href}`).join("\n");
+export const PERFIL = [
+    "# QUEM SOU",
+    clean(profile),
+    "# EXPERIÊNCIA",
+    clean(experience),
+    "# PROJETOS",
+    clean(projects),
+    "# CONTATO",
+    profileLinks.map((x) => `${x.label}: ${x.href}`).join("\n"),
+    "# CURIOSIDADES (só mencione se a pessoa perguntar)",
+    curiosities.map((c) => `- ${c}`).join("\n"),
+].join("\n\n");
 
-    return [
-        "# QUEM SOU",
-        clean(profile[l]),
-        "# EXPERIÊNCIA",
-        clean(experience[l]),
-        "# PROJETOS",
-        clean(projects[l]),
-        "# CONTATO",
-        clean(contact[l]),
-        links,
-    ].join("\n\n");
-}
-
-// Atalho para o idioma padrão
-export const PERFIL = getPerfil("pt");
+// Mantém a função que o _gemini.js já importa, sem precisar mexer lá
+export const getPerfil = () => PERFIL;
