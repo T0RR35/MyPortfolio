@@ -5,7 +5,7 @@ const english_contact: ContactData = {
     eyebrow: "Get in touch",
     title: "Contact",
     subtitle:
-        "Recruiters and teams welcome — use the form or reach out directly through any channel below.",
+        "Have a role, a project, or just a question? Send me a message here or reach out directly.",
     form: {
         name: { label: "Name", placeholder: "Name" },
         email: { label: "Email", placeholder: "Email" },
@@ -22,7 +22,7 @@ const portuguese_contact: ContactData = {
     eyebrow: "Fale comigo",
     title: "Contato",
     subtitle:
-        "Recrutadores e times são bem-vindos — use o formulário ou fale direto por qualquer um dos canais ao lado.",
+        "Tem uma vaga, um projeto ou só uma dúvida? Mande uma mensagem pelo formulário ou fale comigo direto.",
     form: {
         name: { label: "Nome", placeholder: "Nome" },
         email: { label: "E-mail", placeholder: "E-mail" },

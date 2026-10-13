@@ -11,14 +11,14 @@ const headers: Record<Language, Omit<ReviewData, "items">> = {
         eyebrow: "Testimonials",
         title: "Reviews & Recommendations",
         subtitle:
-            "Qualitative endorsements from professors, mentors, managers, and peers — no ratings, just what people said.",
+            "What people I've studied and worked with have to say about me. You can leave one too!",
             btn_text: "Leave a review"
     },
     pt: {
         eyebrow: "Depoimentos",
         title: "Avaliações e Recomendações",
         subtitle:
-            "Recomendações qualitativas de professores, mentores, gestores e colegas — sem notas, só o que as pessoas disseram.",
+            "O que as pessoas com quem estudei e trabalhei têm a dizer sobre mim. Você também pode deixar o seu!",
         btn_text: "Deixe uma avaliação",
     },
 };

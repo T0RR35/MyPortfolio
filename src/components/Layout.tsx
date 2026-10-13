@@ -7,6 +7,7 @@ import "./Layout.css";
 export default function Layout() {
     const location = useLocation();
     const outlet = useOutlet(); // tipo que "congela" a rota atual para o exit funcionar
+    
     return (
         <div className="layout">
             <aside className="sidebar">

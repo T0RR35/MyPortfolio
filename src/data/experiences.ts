@@ -5,7 +5,7 @@ const english_experience: ExperienceData = {
     eyebrow: "Career pathing",
     title: "Professional Experience",
     subtitle:
-        "A chronological thread through my professionals experiences — expand each entry for responsibilities and impact.",
+        "A chronological thread through my professionals experiences. Expand each entry for responsibilities and impact.",
     labels: {
         responsibilities: "Responsibilities",
         achievements: "Key achievements",
@@ -68,7 +68,7 @@ const portuguese_experience: ExperienceData = {
     eyebrow: "Trajetória",
     title: "Experiência Profissional",
     subtitle:
-        "Uma linha do tempo das minhas experiências profissionais — expanda cada item para ver responsabilidades e impacto.",
+        "Uma linha do tempo das minhas experiências profissionais. Expanda cada item para ver responsabilidades e impacto.",
     labels: {
         responsibilities: "Responsabilidades",
         achievements: "Principais conquistas",
