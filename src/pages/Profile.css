@@ -161,6 +161,22 @@
     gap: 1.5rem;
 }
 
+/* O card passa a ser a referência de largura para o layout interno */
+.profile-techs__card {
+    container-type: inline-size;
+}
+
+/* Card estreito (qualquer que seja o motivo): globo vai para baixo das tecnologias */
+@container (max-width: 42rem) {
+    .profile-techs__layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .profile-techs__layout .skills-globe__stage {
+        min-height: clamp(20rem, 75cqw, 26rem);
+    }
+}
+
 .profile-techs__groups {
     display: flex;
     flex-direction: column;
@@ -177,6 +193,7 @@
     flex: 1;
     height: auto;
     min-height: 20rem;
+    isolation: isolate;
 }
 
 /* ---------- Education (timeline) ---------- */
@@ -311,6 +328,10 @@
 
     .profile-stats__grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .profile-techs__layout {
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .profile-bottom {

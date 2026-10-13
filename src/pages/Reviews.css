@@ -2,26 +2,31 @@
     --accent: var(--primary, #22c55e);
     --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
-    padding: 2rem;
+    /* padding da página: até 2rem em telas largas, encolhe nas estreitas */
+    padding: clamp(1rem, 3vw, 2rem);
+
+    /* o grid passa a decidir colunas pela largura DESTA seção (e não da tela):
+       com a sidebar e o chat abertos, uma tela grande ainda pode ter pouco espaço */
+    container-type: inline-size;
 }
 
 /* ---------- Cabeçalho ---------- */
 .reviews__header {
-    margin-bottom: 2rem;
+    margin-bottom: clamp(1.25rem, 3vw, 2rem);
 }
 
 .reviews__eyebrow {
     margin: 0 0 0.5rem;
     color: var(--accent);
     font-family: var(--mono);
-    font-size: 1.2rem;
+    font-size: clamp(0.875rem, 2.5vw, 1.2rem);
     letter-spacing: 0.22em;
     text-transform: uppercase;
 }
 
 .reviews__title {
     margin: 0;
-    font-size: 2.25rem;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.02em;
@@ -36,6 +41,7 @@
 }
 
 .reviews__cta {
+    min-height: 2.75rem;            /* alvo de toque confortável */
     margin-top: 1.25rem;
     padding: 0.7rem 1.4rem;
     border: 1px solid var(--accent);
@@ -56,26 +62,58 @@
     color: #000;
 }
 
-/* ---------- Grid: 2 colunas, cards da mesma linha com a mesma altura ---------- */
+/* ---------- Grid: 2 colunas, cards da mesma linha com a mesma altura ----------
+   O espaço entre os cards acompanha a largura da seção (cqw):
+   no máximo 4.5rem, como antes, e no mínimo 1rem. */
 .reviews__grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 4.5rem;
-    padding-inline: 2rem;    
+    gap: clamp(1rem, 5cqw, 4.5rem);
 }
 
-/* ---------- Mobile ---------- */
-@media (max-width: 767px) {
-    .reviews {
-        padding: 1rem;
-    }
+/* ---------- Estados (erro / vazio) e texto só para leitor de tela ---------- */
+.reviews__state {
+    margin: 0;
+    padding: 2rem 0;
+    color: var(--muted);
+    font-size: 1rem;
+    text-align: center;
+}
 
-    .reviews__title {
-        font-size: 1.75rem;
-    }
+.reviews__state--error {
+    color: #ef4444;
+}
 
+.reviews__sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   Responsivo
+   ========================================================================== */
+
+/* Seção estreita (qualquer que seja o motivo): 1 coluna */
+@container (max-width: 44rem) {
     .reviews__grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Celular pequeno: botão ocupa a largura toda */
+@container (max-width: 30rem) {
+    .reviews__cta {
+        width: 100%;
+    }
+}
+
+/* Reserva para navegadores sem container query: celular sempre em 1 coluna */
+@media (max-width: 767px) {
+    .reviews__grid {
+        grid-template-columns: minmax(0, 1fr);
     }
 }

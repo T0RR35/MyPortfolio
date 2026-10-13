@@ -380,6 +380,13 @@ Screenshots of the application will be added here as development progresses.
 
 ---
 
+## 🙏 Acknowledgments
+
+- [**Software Engineering at PUC Minas**](https://www.instagram.com/engsoftwarepucminas/?hl=pt) — For the institutional support and academic resources.
+- [**Prof. Dr. João Paulo Aramuni**](https://github.com/joaopauloaramuni) — For the guidance provided in the Web Application Development and Integration course.
+
+---
+
 ## 👤 Author
 
 **Rafael Torres**

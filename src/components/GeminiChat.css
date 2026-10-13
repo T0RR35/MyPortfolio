@@ -1,7 +1,7 @@
 .gemini-chat {
     --accent: var(--primary, #22c55e);
     --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    --line: color-mix(in srgb, var(--foreground) 50%, transparent);
+    --line: color-mix(in srgb, var(--foreground) 12%, transparent);
     --danger: #ef4444;
 
     /* ocupa toda a altura do contêiner (painel lateral) */
@@ -144,6 +144,7 @@
     min-height: 0;
     padding: 0.875rem;
     overflow-y: auto;
+    overscroll-behavior: contain;
     scrollbar-width: thin;
 }
 
@@ -373,7 +374,7 @@
 
 .gemini-chat-disclaimer {
     margin: 0;
-    padding: 0 1rem 0.875rem;
+    padding: 0 1rem calc(0.875rem + env(safe-area-inset-bottom));   /* respeita a barra do iPhone */
     color: color-mix(in srgb, var(--muted) 85%, transparent);
     font-size: 0.6875rem;
     line-height: 1.4;

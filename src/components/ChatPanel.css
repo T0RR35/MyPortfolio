@@ -16,7 +16,14 @@
     width: var(--chat-width);
     height: 100vh;
     background: var(--background);
+    overscroll-behavior: contain; 
     transition: width 0.25s ease;
+}
+
+html.chat-scroll-lock,
+html.chat-scroll-lock body {
+    overflow: hidden;
+    overscroll-behavior: none;
 }
 
 .chat--minimized {
@@ -172,6 +179,9 @@
     .chat--open {
         width: 100vw;
         border-left: 0;
+        bottom: auto;
+        height: 100vh;
+        height: 100dvh;
     }
 
     .chat__launcher {

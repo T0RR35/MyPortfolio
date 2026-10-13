@@ -6,6 +6,9 @@ import "./ChatPanel.css";
 const STORAGE_KEY = "chat-open";
 const SEEN_KEY = "chat-launcher-seen";
 
+// Telas em que o chat é uma camada por cima da página (mesmo breakpoint do CSS)
+const OVERLAY_QUERY = "(max-width: 1279px)";
+
 // O brilho chamativo do botão só aparece até o visitante clicar nele a primeira vez
 function getInitialSeen(): boolean {
     try {
@@ -17,7 +20,13 @@ function getInitialSeen(): boolean {
 
 // Abre sozinho só em telas largas (onde cabe ao lado do conteúdo)
 function getInitialOpen(): boolean {
-    return false;
+    try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved !== null) return saved === "true";
+    } catch {
+        /* localStorage bloqueado */
+    }
+    return window.innerWidth >= 1440;
 }
 
 /**
@@ -32,7 +41,6 @@ export default function ChatPanel() {
     const launcherRef = useRef<HTMLButtonElement>(null);
     // Para onde levar o foco depois da próxima abertura/minimização.
     // Só é preenchido por um clique do usuário, então ao carregar a página
-    // (inclusive no StrictMode, que roda os effects duas vezes) nada ganha foco.
     const focusTarget = useRef<"panel" | "launcher" | null>(null);
 
     useEffect(() => {
@@ -41,6 +49,20 @@ export default function ChatPanel() {
         } catch {
             /* ignora */
         }
+    }, [open]);
+
+    // Chat aberto como camada: trava a rolagem da página que está por baixo
+    useEffect(() => {
+        const media = window.matchMedia(OVERLAY_QUERY);
+        const root = document.documentElement;
+        const update = () => root.classList.toggle("chat-scroll-lock", open && media.matches);
+
+        update();
+        media.addEventListener("change", update);
+        return () => {
+            media.removeEventListener("change", update);
+            root.classList.remove("chat-scroll-lock");
+        };
     }, [open]);
 
     useEffect(() => {
