@@ -20,13 +20,7 @@ function getInitialSeen(): boolean {
 
 // Abre sozinho só em telas largas (onde cabe ao lado do conteúdo)
 function getInitialOpen(): boolean {
-    try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved !== null) return saved === "true";
-    } catch {
-        /* localStorage bloqueado */
-    }
-    return window.innerWidth >= 1440;
+    return false;
 }
 
 /**
