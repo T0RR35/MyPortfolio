@@ -46,8 +46,8 @@ export default function SpotifyWidgets() {
                     data-active={mode === active}
                     aria-hidden={mode !== active}
                 >
-                    <img className="spotify__widget" src={URLS[mode].nowPlaying} alt={alt.playing} />
-                    <img className="spotify__widget" src={URLS[mode].recent} alt={alt.recent} />
+                    <img className="spotify__widget" src={URLS[mode].nowPlaying} alt={alt.playing} referrerPolicy="no-referrer"/>
+                    <img className="spotify__widget" src={URLS[mode].recent} alt={alt.recent} referrerPolicy="no-referrer"/>
                 </div>
             ))}
         </div>
