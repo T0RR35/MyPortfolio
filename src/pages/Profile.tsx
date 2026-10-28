@@ -5,6 +5,7 @@ import { useProfile } from "@/data/profile";
 import SkillsGlobe from "../components/SkillsGlobe";
 import { globeSkills } from "@/data/globeSkills";
 import type { ProfileEntity } from "@/types/ProfileData";
+import SpotifyWidgets from "@/components/SpotifyWidgets";
 
 
 export default function Profile() {
@@ -132,6 +133,12 @@ export default function Profile() {
                             </li>
                         ))}
                     </ul>
+                </div>
+            </section>
+
+            <section className="profile-sections profile-bottom" aria-label="certifications and languages">
+                <div className="profile-default__card profile-bottom__card">
+                        <SpotifyWidgets />
                 </div>
             </section>
         </>

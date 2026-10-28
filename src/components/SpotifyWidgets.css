@@ -1,0 +1,34 @@
+.spotify__set {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    justify-content: center;
+    align-items: start;
+    gap: 1rem;
+}
+
+.spotify__set[data-active="false"] {
+    display: none;
+}
+
+.spotify__widget {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--foreground) 25%, transparent);
+}
+
+.spotify__widget:first-child {
+    max-height: 17.5rem;
+    aspect-ratio: 200 / 270;
+}
+
+@media (max-width: 600px) {
+    .spotify__set {
+        grid-template-columns: 1fr;
+    }
+
+    .spotify__widget {
+        max-width: 100%;
+    }
+}
