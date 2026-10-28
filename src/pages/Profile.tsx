@@ -6,6 +6,7 @@ import SkillsGlobe from "../components/SkillsGlobe";
 import { globeSkills } from "@/data/globeSkills";
 import type { ProfileEntity } from "@/types/ProfileData";
 import SpotifyWidgets from "@/components/SpotifyWidgets";
+import ChessWidgets from "@/components/ChessWidgets";
 
 
 export default function Profile() {
@@ -139,6 +140,10 @@ export default function Profile() {
             <section className="profile-sections profile-bottom" aria-label="certifications and languages">
                 <div className="profile-default__card profile-bottom__card">
                         <SpotifyWidgets />
+                </div>
+
+                <div className="profile-default__card profile-bottom__card">
+                        <ChessWidgets />
                 </div>
             </section>
         </>
