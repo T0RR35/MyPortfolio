@@ -2,10 +2,16 @@ import { MapPin } from "lucide-react";
 import "./ProfileHeader.css";
 import { useProfileLinks } from "@/data/profile";
 import { useProfile } from "@/data/profile";
+import { useTemperature } from "@/hooks/useTemperature";
+import { useLanguage } from "@/utils/languageSwitcher";
 
 export default function ProfileHeader() {
+    const language = useLanguage()
     const profile = useProfile();
     const profileLinks = useProfileLinks();
+    const temperatures = useTemperature(profile["location"], language);
+    const [celsius, fahrenheit] = temperatures ?? [];
+    const shown = language === "en" ? fahrenheit : celsius;
 
     return (
         <header className="profile-header">
@@ -26,6 +32,7 @@ export default function ProfileHeader() {
                     <p className="profile-header__location">
                         <MapPin size={14} aria-hidden="true" />
                         {profile["location"]}
+                        {shown && <> ∙ {shown}</>}
                     </p>
                 </div>
 
