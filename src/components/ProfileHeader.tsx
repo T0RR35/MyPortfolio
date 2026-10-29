@@ -4,14 +4,19 @@ import { useProfileLinks } from "@/data/profile";
 import { useProfile } from "@/data/profile";
 import { useTemperature } from "@/hooks/useTemperature";
 import { useLanguage } from "@/utils/languageSwitcher";
+import { getStatusByLocalTime, useLocalTime } from "@/hooks/useLocalTime";
 
 export default function ProfileHeader() {
     const language = useLanguage()
     const profile = useProfile();
     const profileLinks = useProfileLinks();
+
     const temperatures = useTemperature(profile["location"], language);
     const [celsius, fahrenheit] = temperatures ?? [];
     const shown = language === "en" ? fahrenheit : celsius;
+    
+    const localTime = useLocalTime(language);
+    const status = getStatusByLocalTime(language)
 
     return (
         <header className="profile-header">
@@ -33,6 +38,8 @@ export default function ProfileHeader() {
                         <MapPin size={14} aria-hidden="true" />
                         {profile["location"]}
                         {shown && <> ∙ {shown}</>}
+                        <> ∙ {localTime}</>
+                        <> ∙ {status}</>
                     </p>
                 </div>
 
