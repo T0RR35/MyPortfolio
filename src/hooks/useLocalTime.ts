@@ -82,10 +82,10 @@ export function getStatusByLocalTime(language: string, now: Date = new Date()): 
                 return t.studying;
             }
         }else{
-            if(hours >= 17){
-                return t.gym;
-            }else if(hours > 19){
+            if(hours >= 19){
                 return t.studying;
+            }else if(hours >= 17){
+                return t.gym;
             }
         }
         return t.available;

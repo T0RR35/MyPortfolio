@@ -1,4 +1,4 @@
-import { MapPin } from "lucide-react";
+import { Clock, MapPin } from "lucide-react";
 import "./ProfileHeader.css";
 import { useProfileLinks } from "@/data/profile";
 import { useProfile } from "@/data/profile";
@@ -34,13 +34,24 @@ export default function ProfileHeader() {
                     <h1 className="profile-header__name">Rafael Torres</h1>
                     <p className="profile-header__title">{profile["subtitle"]}</p>
                     <p className="profile-header__handle">@rafael.dev</p>
-                    <p className="profile-header__location">
-                        <MapPin size={14} aria-hidden="true" />
-                        {profile["location"]}
-                        {shown && <> ∙ {shown}</>}
-                        <> ∙ {localTime}</>
-                        <> ∙ {status}</>
-                    </p>
+                    <ul className="profile-header__location" aria-label="Localização e horário local">
+                        <li className="profile-header__chip">
+                            <MapPin size={14} aria-hidden="true" />
+                            {profile["location"]}
+                        </li>
+
+                        {shown && <li className="profile-header__chip">{shown}</li>}
+
+                        <li className="profile-header__chip">
+                            <Clock size={14} aria-hidden="true" />
+                            {localTime}
+                        </li>
+
+                        <li className="profile-header__chip profile-header__chip--status">
+                            <span className="profile-header__status-dot" aria-hidden="true" />
+                            {status}
+                        </li>
+                    </ul>
                 </div>
 
                 <nav className="profile-header__links" aria-label="Links de contato">
