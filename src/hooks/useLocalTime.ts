@@ -34,25 +34,27 @@ export function getBrazilDate(now: Date = new Date()): Date {
 }
 
 const STATUS = {
-    en: { 
-        asleep: "Probably asleep", 
-        morning: "Starting the day", 
+    en: {
+        asleep: "Probably asleep",
+        morning: "Starting the day",
         working: "At work",
         studying: "Studying",
-        available: "Available", 
-        lunch: "Having lunch", 
+        available: "Available",
+        lunch: "Having lunch",
         gym: "Probably at the gym",
         offline: "Off the clock",
+        weekend: "Weekend - Probably avaliable"
     },
-    pt: { 
-        asleep: "Provavelmente dormindo", 
-        morning: "Começando o dia", 
+    pt: {
+        asleep: "Provavelmente dormindo",
+        morning: "Começando o dia",
         working: "No trabalho",
         studying: "Estudando",
-        available: "Disponível", 
-        lunch: "Almoçando", 
+        available: "Disponível",
+        lunch: "Almoçando",
         gym: "Provavelmente na academia",
-        offline: "Fora do expediente", 
+        offline: "Fora do expediente",
+        weekend: "Fim de semana - Possivelmente disponível"
     },
 };
 
@@ -64,31 +66,34 @@ export function getStatusByLocalTime(language: string, now: Date = new Date()): 
     const hours = br.getHours();
     const day = br.getDay();
 
-    if (day > 0 || day < 6){ //monday to friday
-        if(((hours >= 23) && (minutes > 30)) || ((hours <= 7) && (minutes < 30))){
-            return t.asleep;
-        }else if(hours >= 22 && minutes >= 30){
+    if (((hours >= 23) && (minutes > 30)) || ((hours <= 7) && (minutes < 30))) {
+        return t.asleep;
+    }
+    if (day > 0 || day < 6) { //monday to friday
+        if (hours >= 22 && minutes >= 30) {
             return t.offline;
-        }else if(hours < 8){
+        } else if (hours < 8) {
             return t.morning;
-        }else if(hours === 12 && minutes < 40){
+        } else if (hours === 12 && minutes < 40) {
             return t.lunch;
-        }else if(hours < 14){
+        } else if (hours < 14) {
             return t.working;
         }
 
-        if(day === 2){ // if tuesday
-            if(hours >= 17){
+        if (day === 2) { // if tuesday
+            if (hours >= 17) {
                 return t.studying;
             }
-        }else{
-            if(hours >= 19){
+        } else {
+            if (hours >= 19) {
                 return t.studying;
-            }else if(hours >= 17){
+            } else if (hours >= 17) {
                 return t.gym;
             }
         }
         return t.available;
+    } else { //saturday and sunday
+        return t.weekend;
     }
 
     return "";
