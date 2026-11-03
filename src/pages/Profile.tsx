@@ -7,6 +7,8 @@ import { globeSkills } from "@/data/globeSkills";
 import type { ProfileEntity } from "@/types/ProfileData";
 import SpotifyWidgets from "@/components/SpotifyWidgets";
 import ChessWidgets from "@/components/ChessWidgets";
+import WakatimeStatsWidget from "@/components/WakatimeWidget";
+import GithubStatsWidget from "@/components/GithubStatsWidget";
 
 
 export default function Profile() {
@@ -81,6 +83,16 @@ export default function Profile() {
                 </div>
             </section>
 
+            <section className="profile-sections profile-bottom" aria-label="certifications and languages">
+                <div className="profile-default__card profile-bottom__card">
+                        <WakatimeStatsWidget />
+                    </div>
+
+                    <div className="profile-default__card profile-bottom__card">
+                        <GithubStatsWidget />
+                    </div>
+            </section>
+
             <section className="profile-sections" aria-labelledby="education-title">
                 <div className="profile-default__card profile-education__card">
                     <h2 id="education-title" className="profile-education__title">
@@ -136,8 +148,8 @@ export default function Profile() {
                     </ul>
                 </div>
             </section>
-
-            <section className="profile-sections profile-bottom" aria-label="certifications and languages">
+            
+            {/* <section className="profile-sections profile-bottom" aria-label="certifications and languages">
                 <div className="profile-default__card profile-bottom__card">
                         <SpotifyWidgets />
                 </div>
@@ -145,7 +157,7 @@ export default function Profile() {
                 <div className="profile-default__card profile-bottom__card">
                         <ChessWidgets />
                 </div>
-            </section>
+            </section> */}
         </>
     )
 }

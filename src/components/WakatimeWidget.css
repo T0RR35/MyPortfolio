@@ -1,0 +1,14 @@
+.wakatime__set[data-active="false"] {
+    display: none;
+}
+
+.wakatime__widget {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.wakatime__widget:first-child {
+    max-height: 17.5rem;
+    aspect-ratio: 200 / 270;
+}
