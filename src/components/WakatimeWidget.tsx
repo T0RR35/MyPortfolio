@@ -16,7 +16,7 @@ const ALT = {
 
 const buildUrl = (mode: Mode) => ({
     url:
-        `https://helio-github-stats.vercel.app/api/wakatime?username=0567bae2-693c-44f5-a00a-95bfad691d49&custom_title=WakaTime+Stats&line_height=25&layout=compact&display_format=time&disable_animations=false&langs_count=14&${RECENT_THEME[mode]}${RECENT_BG[mode]}`
+        `https://helio-github-stats.vercel.app/api/wakatime?username=0567bae2-693c-44f5-a00a-95bfad691d49&custom_title=WakaTime+Stats&line_height=25&layout=compact&display_format=time&disable_animations=false&langs_count=20&${RECENT_THEME[mode]}${RECENT_BG[mode]}`
 });
 
 const URL: Record<Mode, ReturnType<typeof buildUrl>> = {
