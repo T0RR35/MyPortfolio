@@ -1,6 +1,7 @@
 import { useIsDark } from "@/hooks/useIsDark";
 import { useLanguage } from "@/utils/languageSwitcher";
 import "./WakatimeWidget.css";
+import { LanguagesIcon } from "lucide-react";
 
 const UID = import.meta.env.VITE_SPOTIFY_UID;
 
@@ -39,6 +40,9 @@ export default function WakatimeWidgets() {
                     data-active={mode === active}
                     aria-hidden={mode !== active}
                 >
+                    <h2 className="wakatime-title">
+                        {alt}
+                    </h2>
                     <img className="wakatime__widget" src={URL[mode].url} alt={alt} referrerPolicy="no-referrer" />
                 </div>
             ))}

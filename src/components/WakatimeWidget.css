@@ -1,14 +1,14 @@
 .wakatime {
     display: grid;
     place-items: center;
-    align-self: stretch;         
+    align-self: stretch;
     width: 100%;
-    height: 100%;          
+    height: 100%;
     min-height: 17.5rem;
 }
 
 .wakatime__set {
-    grid-area: 1 / 1;            
+    grid-area: 1 / 1;
     display: grid;
     place-items: center;
     width: 100%;
@@ -20,8 +20,17 @@
 
 .wakatime__widget {
     display: block;
-    width: auto;                 
+    width: auto;
     max-width: 100%;
     height: auto;
     max-height: 17.5rem;
+}
+
+.wakatime-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+    font-size: 1.125rem;
+    letter-spacing: -0.01em;
 }
