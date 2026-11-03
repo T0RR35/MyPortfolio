@@ -66,7 +66,7 @@ export function getStatusByLocalTime(language: string, now: Date = new Date()): 
     const hours = br.getHours();
     const day = br.getDay();
 
-    if (((hours >= 23) && (minutes > 30)) || ((hours <= 7) && (minutes < 30))) {
+    if (((hours >= 23) && (minutes > 30)) || ((hours <= 7) )) {
         return t.asleep;
     }
     if (day > 0 || day < 6) { //monday to friday
